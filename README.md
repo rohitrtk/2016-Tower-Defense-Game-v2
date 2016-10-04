@@ -14,7 +14,7 @@
   
 **List of things required for 4+**
   - [ ] Multiple maps
-  - [ ]~~Health bars~~
+  - [ ] ~~Health bars~~
   - [ ] Easter eggs
   - [x] A coherent game theme
   - [ ] Challenge levels
@@ -24,9 +24,9 @@
   - [ ] Home class
   - [ ] Upgrades of towers
   - [ ] Raze towers
-  - [ ]~~Use of animated gifs~~
+  - [ ] ~~Use of animated gifs~~
   - [ ] Javadocs documentation completed
-  - [ ]~~Magical mystery options of impressive quality~~
+  - [ ] ~~Magical mystery options of impressive quality~~
 
 
 **Sources**
