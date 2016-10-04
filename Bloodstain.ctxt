@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.target=Bloodstain
+comment0.text=\r\n\ This\ will\ be\ used\ as\ an\ after\ effect\ for\ a\ dead\ enemy\ \r\n\ \r\n\ @author\ Rohit\ Terry\ Kisto\r\n\ @version\ 2016/9/30\r\n
+comment1.params=world\ x\ y
+comment1.target=Bloodstain(greenfoot.World,\ int,\ int)
+comment1.text=\r\n\ Constructs\ a\ new\ bloodstain\r\n\ @param\ World\ world\r\n\ @param\ int\ x\ position\r\n\ @param\ int\ y\ position\r\n
+comment2.params=
+comment2.target=void\ act()
+comment2.text=\r\n\ Act\ -\ do\ whatever\ the\ Bloodstain\ wants\ to\ do.\ This\ method\ is\ called\ whenever\r\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n
+comment3.params=
+comment3.target=void\ destroy()
+comment3.text=\r\n\ Removes\ this\ object\ from\ the\ world\r\n\ @return\ void\r\n
+numComments=4

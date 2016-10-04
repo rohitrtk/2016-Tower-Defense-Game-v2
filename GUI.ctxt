@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.target=GUI
+comment0.text=\r\n\ This\ class\ will\ be\ extended\ upon\ for\ all\ GUI\ objects\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment1.params=world\ x\ y
+comment1.target=GUI(greenfoot.World,\ int,\ int)
+comment1.text=\r\n\ Constructs\ a\ GUI\ object,\ must\ be\ called\ as\ super\ by\ subclasses\r\n
+comment2.params=
+comment2.target=void\ act()
+comment2.text=\r\n\ Act\ -\ do\ whatever\ the\ GUI\ wants\ to\ do.\ This\ method\ is\ called\ whenever\r\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n
+numComments=3

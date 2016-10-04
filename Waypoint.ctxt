@@ -1,0 +1,19 @@
+#BlueJ class context
+comment0.target=Waypoint
+comment0.text=\r\n\ This\ class\ will\ store\ an\ x\ position\ and\ y\ position,\ the\ map\ the\ scene\ is\ on\ will\ have\ an\ arraylist\ of\ waypoints,\r\n\ each\ enemy\ will\ have\ to\ move\ towards\ a\ waypoint\ to\ get\ to\ the\ other\ side\ of\ the\ map.\r\n\ \r\n\ @author\ Rohit\ Terry\ Kisto\r\n\ @version\ 2016/9/19\r\n
+comment1.params=world\ x\ y
+comment1.target=Waypoint(greenfoot.World,\ int,\ int)
+comment1.text=\r\n\ Constructs\ a\ Waypoint\r\n\ @param\ World\ world\r\n\ @param\ int\ x\ position\r\n\ @param\ int\ y\ position\r\n
+comment2.params=x
+comment2.target=void\ setX(int)
+comment2.text=\r\n\ This\ method\ returns\ the\ x\ position\ of\ the\ waypoint\r\n\ @param\ int\ x\ position\r\n\ @return\ void\ \r\n
+comment3.params=
+comment3.target=int\ getX()
+comment3.text=\r\n\ This\ method\ returns\ the\ x\ position\ of\ the\ waypoint\r\n\ @return\ x\ position\r\n
+comment4.params=y
+comment4.target=void\ setY(int)
+comment4.text=\r\n\ This\ method\ returns\ the\ x\ position\ of\ the\ waypoint\r\n\ @param\ int\ y\ position\r\n\ @return\ void\r\n
+comment5.params=
+comment5.target=int\ getY()
+comment5.text=\r\n\ This\ method\ returns\ the\ x\ position\ of\ the\ waypoint\r\n\ @return\ void\r\n
+numComments=6

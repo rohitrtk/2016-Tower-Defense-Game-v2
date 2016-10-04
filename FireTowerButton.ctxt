@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.target=FireTowerButton
+comment0.text=\r\n\ A\ tower\ the\ user\ can\ place\ down,\ this\ tower\ will\ shoot\ a\ powerful\ bullet\ but\ has\ the\ chance\ to\ go\ 'out'\ upon\ launch\r\n\ \r\n\ @author\ Rohit\ Terry\ Kisto\r\n\ @version\ 2016/9/30\r\n
+comment1.params=world\ x\ y
+comment1.target=FireTowerButton(greenfoot.World,\ int,\ int)
+comment1.text=\r\n\ Constructs\ a\ new\ tower\ button\r\n\ @param\ World\ world\r\n\ @param\ int\ x\ position\r\n\ @param\ int\ y\ position\r\n
+comment2.params=
+comment2.target=void\ act()
+comment2.text=\r\n\ Act\ -\ do\ whatever\ the\ TowerButton\ wants\ to\ do.\ This\ method\ is\ called\ whenever\r\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n
+numComments=3

@@ -1,0 +1,16 @@
+#BlueJ class context
+comment0.target=HP
+comment0.text=\r\n\ This\ class\ will\ be\ used\ as\ a\ label\ to\ display\ the\ current\ HP\ of\ the\ player\r\n\ \r\n\ @author\ Rohit\ Terry\ Kisto\r\n\ @version\ 2016/9/30\r\n
+comment1.params=world\ x\ y\ hp
+comment1.target=HP(greenfoot.World,\ int,\ int,\ int)
+comment1.text=\r\n\ Constructs\ a\ new\ HP\ label\r\n\ @param\ World\ world\r\n\ @param\ int\ x\ position\r\n\ @param\ int\ y\ position\r\n\ @param\ int\ hp\r\n
+comment2.params=
+comment2.target=void\ act()
+comment2.text=\r\n\ Act\ -\ do\ whatever\ the\ HP\ wants\ to\ do.\ This\ method\ is\ called\ whenever\r\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n
+comment3.params=hp
+comment3.target=void\ setHp(int)
+comment3.text=\r\n\ Sets\ the\ current\ hp\ to\ the\ parameter\r\n\ @param\ int\ hp\r\n\ @return\ void\r\n
+comment4.params=
+comment4.target=int\ getHp()
+comment4.text=\r\n\ Gets\ the\ current\ round\ \r\n\ @return\ int\ hp\r\n
+numComments=5

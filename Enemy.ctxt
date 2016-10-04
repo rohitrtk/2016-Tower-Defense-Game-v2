@@ -1,0 +1,26 @@
+#BlueJ class context
+comment0.target=Enemy
+comment0.text=\r\n\ This\ class\ will\ be\ extended\ upon\ for\ all\ enemies\ in\ the\ game.\r\n\ \r\n\ @author\ Rohit\ Terry\ Kisto\r\n\ @version\ 2016/9/30\r\n
+comment1.params=world\ x\ y
+comment1.target=Enemy(greenfoot.World,\ int,\ int)
+comment1.text=\r\n\ Constructor\ for\ Enemy\r\n\ @param\ World\ world\r\n\ @param\ int\ x\ position\r\n\ @param\ int\ y\ position\r\n
+comment2.params=
+comment2.target=void\ act()
+comment2.text=\r\n\ Act\ -\ do\ whatever\ the\ Enemy\ wants\ to\ do.\ This\ method\ is\ called\ whenever\r\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n\ @return\ void\r\n
+comment3.params=
+comment3.target=void\ destroy()
+comment3.text=\r\n\ This\ method\ will\ remove\ the\ enemy\ from\ the\ scene\r\n\ @return\ void\r\n
+comment4.params=
+comment4.target=void\ moveEnemyWithArrowKeys()
+comment4.text=\r\n\ This\ method\ will\ move\ the\ enemy\ based\ on\ user\ input\ with\ arrow\ keys,\r\n\ primarily\ used\ for\ testing\ range\ of\ towers\r\n\ @return\ void\r\n
+comment5.params=moveSpeed
+comment5.target=void\ setMoveSpeed(int)
+comment5.text=\r\n\ This\ method\ sets\ the\ move\ speed\ of\ an\ enemy\r\n\ @param\ int\ moveSpeed\r\n
+comment6.params=
+comment6.target=int\ getMoveSpeed()
+comment6.text=\r\n\ This\ method\ returns\ the\ move\ speed\ of\ an\ enemy\r\n\ @return\ int\ moveSpeed\r\n
+comment7.params=
+comment7.target=void\ takeDamage()
+comment8.params=
+comment8.target=boolean\ checkHit()
+numComments=9
