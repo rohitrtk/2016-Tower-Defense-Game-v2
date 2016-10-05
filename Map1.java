@@ -35,6 +35,8 @@ public class Map1 extends World
     // IF YOU WANT TO TURN THE BGM ON OR OFF, CHANGE THE BOOLEAN BELOW!
     private boolean mute = true;
     
+    private boolean menu = true;
+    
     /**
      * This method constructs Map1 and initializes the world, the tiles on the world
      * the arraylist of waypoints and any enemies/towers
@@ -44,6 +46,13 @@ public class Map1 extends World
         // Create a new world with 780, 540 cells with a cell size of 1x1 pixels.
         // Cell width is 60 pixels each
         super(840, 540, 1); 
+        
+        if(menu)
+        {
+            menu = false;
+            Greenfoot.setWorld(new TitleScreen());
+            return;
+        }
         
         // Background music mute option
         bgm = new GreenfootSound("bgm.mp3");
