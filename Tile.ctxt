@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Tile
-comment0.text=\r\n\ This\ class\ will\ be\ extended\ upon\ for\ all\ 'Tiles'\ in\ the\ game\r\n\ Override\ the\ act\ method\!\r\n\ \r\n\ @author\ Rohit\ Terry\ Kisto\ \r\n\ @version\ 2016/9/19\r\n
+comment0.text=\r\n\ This\ class\ will\ be\ extended\ upon\ for\ all\ 'Tiles'\ in\ the\ game\r\n\ Override\ the\ act\ method\!\r\n\ \r\n\ @author\ Rohit\ Terry\ Kisto\ \r\n\ @version\ 2016/9/30\r\n
 comment1.params=x\ y
 comment1.target=Tile(int,\ int)
 comment1.text=\r\n\ Constructs\ a\ Tile,\ used\ as\ a\ test\ object\ in\ the\ world\r\n\ @param\ int\ x\ position\r\n\ @param\ int\ y\ position\r\n

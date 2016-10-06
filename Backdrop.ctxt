@@ -1,9 +1,9 @@
 #BlueJ class context
 comment0.target=Backdrop
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ Backdrop\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ This\ class\ will\ be\ used\ as\ a\ backdrop\ for\ the\ GUI\ on\ the\ right\ hand\ side\ of\ the\ screen\r\n\ \r\n\ @author\ Rohit\ Terry\ Kisto\ \r\n\ @version\ 2016/9/30\r\n
 comment1.params=world\ x\ y
 comment1.target=Backdrop(greenfoot.World,\ int,\ int)
-comment1.text=\r\n\ Constructs\ a\ new\ Backdrop\r\n
+comment1.text=\r\n\ Constructs\ a\ new\ Backdrop\r\n\ @param\ World\ world\r\n\ @param\ int\ x\ position\r\n\ @param\ int\ y\ position\r\n
 comment2.params=
 comment2.target=void\ act()
 comment2.text=\r\n\ Act\ -\ do\ whatever\ the\ Backdrop\ wants\ to\ do.\ This\ method\ is\ called\ whenever\r\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n

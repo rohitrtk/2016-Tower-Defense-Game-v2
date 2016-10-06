@@ -29,6 +29,5 @@ public class Backdrop extends GUI
      */
     public void act() 
     {
-    }
-    }    
+    }   
 }

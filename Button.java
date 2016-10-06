@@ -9,11 +9,14 @@ public class Button extends GUI
     GreenfootImage greenfootImage;
     private String string;
     
+    private Map1 map1;
+    
     /**
      * Constructs a GUI object, must be called as super by subclasses
      * @param World world
      * @param int x position
      * @param int y position
+     * @param String string
      */
     public Button(World world, int x, int y, String string)
     {
@@ -23,6 +26,28 @@ public class Button extends GUI
         
         greenfootImage = new GreenfootImage(string, 50, Color.BLACK, Color.WHITE);
         setImage(greenfootImage);
+        
+        world.addObject(this, x, y);
+    }
+    
+    /**
+     * Constructs a GUI object, must be called as super by subclasses
+     * @param World world
+     * @param int x position
+     * @param int y position
+     * @param String string
+     * @param World world
+     */
+    public Button(World world, int x, int y, String string, Map1 map1)
+    {
+        super(world, x, y);
+        
+        this.string = string;
+        
+        greenfootImage = new GreenfootImage(string, 50, Color.BLACK, Color.WHITE);
+        setImage(greenfootImage);
+        
+        this.map1 = map1;
         
         world.addObject(this, x, y);
     }
@@ -42,7 +67,10 @@ public class Button extends GUI
         {
             if(Greenfoot.mouseClicked(this))
             {
-                if(string.equals("PLAY")) Greenfoot.setWorld(new Map1());
+                if(string.equals("PLAY")) 
+                {
+                    Greenfoot.setWorld(map1);
+                }
                 else if(string.equals("HELP")) ;
                 else if(string.equals("QUIT")) System.exit(0);
             }

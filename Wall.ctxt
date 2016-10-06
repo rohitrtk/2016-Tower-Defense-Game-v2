@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Wall
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ Wall\ here.\r\n\ \r\n\ @author\ Rohit\ Terry\ Kisto\ \r\n\ @version\ 2016/9/19\r\n
+comment0.text=\r\n\ Tile\ of\ type\ 'Wall',\ towers\ CAN\ be\ placed\ on\ this\ tile\r\n\ \r\n\ @author\ Rohit\ Terry\ Kisto\ \r\n\ @version\ 2016/9/19\r\n
 comment1.params=x\ y
 comment1.target=Wall(int,\ int)
 comment1.text=\r\n\ Constructor\ for\ Wall,\ used\ as\ a\ test\ object\ for\ the\ scene\ \r\n\ @param\ int\ x\ position\r\n\ @param\ int\ y\ position\r\n

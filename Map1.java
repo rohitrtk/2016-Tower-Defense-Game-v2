@@ -31,9 +31,13 @@ public class Map1 extends World
     private HP hpGUI;
     private Money moneyGUI;
     
+    private boolean win;
+    private boolean loss;
+    
     private GreenfootSound bgm;
     // IF YOU WANT TO TURN THE BGM ON OR OFF, CHANGE THE BOOLEAN BELOW!
     private boolean mute = true;
+    //private boolean mute = false;
     
     private boolean menu = true;
     
@@ -54,13 +58,14 @@ public class Map1 extends World
         if(menu)
         {
             menu = false;
-            Greenfoot.setWorld(new TitleScreen());
-            return;
+            Greenfoot.setWorld(new TitleScreen(this));
         }
 
         // Init variables
         enemies = new ArrayList<Enemy>();
         enemNumber = 0;
+        win = false;
+        loss = false;
         round = 0;
         hp = 100;
         money = 100;
@@ -117,8 +122,14 @@ public class Map1 extends World
      */
     public void act()
     {       
+        if(hp < 1) 
+        {
+            loss = true;
+        }
         spawnEnemy();
-    
+        roundGUI.setRound(round);
+        hpGUI.setHp(hp);
+        moneyGUI.setMoney(money);
     }
     
     /**
@@ -196,6 +207,14 @@ public class Map1 extends World
      */
     private void spawnEnemy()
     {
+        if (enemies == null) return; 
+        
+        //Victory condition
+        if(round > 50)
+        {
+            win = true;
+        }
+        
         if(spawn)
             {  
                if(enemNumber < (2 * round) + 3 && round != 0)
