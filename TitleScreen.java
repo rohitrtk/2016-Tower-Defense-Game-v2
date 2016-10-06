@@ -10,8 +10,8 @@ import java.awt.Color;
 public class TitleScreen extends World
 {
 
-    String[] names = {"PLAY, HELP, QUIT"};
-    GreenfootImage[] buttons;
+    String strings[];
+    Button buttons[];
     
     /**
      * Constructor for objects of class TitleScreen.
@@ -21,11 +21,17 @@ public class TitleScreen extends World
     {    
         super(840, 540, 1); 
         
-        buttons = new GreenfootImage[3];
+        strings = new String[3];
+        buttons = new Button[3];
+        
         for(int i = 0;i < buttons.length;i++)
         {
-            buttons[i] = new GreenfootImage(names[i], 30, Color.BLACK, Color.WHITE);
-        }
+            if(i == 0) strings[i] = "PLAY";
+            else if(i == 1) strings[i] = "HELP";
+            else strings[i] = "QUIT";
+            
+            buttons[i] = new Button(this, 275 + (i * 150), getHeight() / 2, strings[i]);
+        }      
     }
     
     public void act()

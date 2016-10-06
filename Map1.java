@@ -47,16 +47,25 @@ public class Map1 extends World
         // Cell width is 60 pixels each
         super(840, 540, 1); 
         
+        // Background music mute option
+        bgm = new GreenfootSound("bgm.mp3");
+        if(!mute) bgm.playLoop();
+        
         if(menu)
         {
             menu = false;
             Greenfoot.setWorld(new TitleScreen());
             return;
         }
-        
-        // Background music mute option
-        bgm = new GreenfootSound("bgm.mp3");
-        if(!mute) bgm.playLoop();
+
+        // Init variables
+        enemies = new ArrayList<Enemy>();
+        enemNumber = 0;
+        round = 0;
+        hp = 100;
+        money = 100;
+        timer = 0;
+        spawn = true;
         
         guiHandler();                                   // Loads up the GUI on the right side of the screen
         
@@ -101,15 +110,6 @@ public class Map1 extends World
                     break;
             }
         }
-        
-        // Init other variables
-        enemies = new ArrayList<Enemy>();
-        enemNumber = 0;
-        round = 0;
-        hp = 100;
-        money = 100;
-        timer = 0;
-        spawn = true;
     }
     
     /**
@@ -118,9 +118,7 @@ public class Map1 extends World
     public void act()
     {       
         spawnEnemy();
-        roundGUI.setRound(round);
-        hpGUI.setHp(hp);
-        moneyGUI.setMoney(money);
+    
     }
     
     /**
@@ -221,5 +219,5 @@ public class Map1 extends World
                    spawn = true;
                }
            }
-    }
-}
+        }
+   }
