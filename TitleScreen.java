@@ -10,9 +10,11 @@ import java.awt.Color;
 public class TitleScreen extends World
 {
 
-    Map1 map1;
+    //Map1 map1;
     String strings[];
     Button buttons[];
+    
+    public static Map1 map1;
     
     /**
      * Constructor for objects of class TitleScreen.
@@ -22,7 +24,7 @@ public class TitleScreen extends World
     {    
         super(840, 540, 1); 
         
-        this.map1 = map1;
+        TitleScreen.map1 = map1;
         
         strings = new String[3];
         buttons = new Button[3];
@@ -31,15 +33,15 @@ public class TitleScreen extends World
         {
             if(i == 0) strings[i] = "PLAY";
             else if(i == 1) strings[i] = "HELP";
-            else strings[i] = "QUIT";
-            
-            if(i == 0) 
+            else if(i == 2) strings[i] = "QUIT";
+            /*if(i == 0) 
             {
                 buttons[i] = new Button(this, 275 + (i * 150), getHeight() / 2, strings[i],
                    map1);
             } else {
                 buttons[i] = new Button(this, 275 + (i * 150), getHeight() / 2, strings[i]);
-            }
+            }*/
+            buttons[i] = new Button(this, 275 + (i * 150), getHeight() / 2, strings[i]);
         }      
     }
     
