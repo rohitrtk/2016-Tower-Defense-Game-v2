@@ -121,10 +121,13 @@ public class Map1 extends World
      * This method is called when the Run button is pressed
      */
     public void act()
-    {       
+    {    
+        if(win) Greenfoot.setWorld(new WinScreen());
+        
         if(hp < 1) 
         {
             loss = true;
+            Greenfoot.setWorld(new LossScreen());
         }
         spawnEnemy();
         roundGUI.setRound(round);

@@ -67,12 +67,12 @@ public class Button extends GUI
         {
             if(Greenfoot.mouseClicked(this))
             {
-                if(string.equals("PLAY")) 
-                {
-                    Greenfoot.setWorld(map1);
-                }
-                else if(string.equals("HELP")) ;
+                if(string.equals("PLAY")) Greenfoot.setWorld(new WorldSelectScreen());
+                else if(string.equals("HELP")) Greenfoot.setWorld(new HelpScreen());
                 else if(string.equals("QUIT")) System.exit(0);
+                else if(string.equals("MAP1")) Greenfoot.setWorld(TitleScreen.map1);
+                else if(string.equals("MAP2")) Greenfoot.setWorld(new Map2());
+                else if(string.equals("MAP3")) Greenfoot.setWorld(new Map3());
             }
         }
     }
