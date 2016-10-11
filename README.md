@@ -23,7 +23,7 @@
   - [ ] Pause/restart
   - [ ] Home class
   - [ ] Upgrades of towers
-  - [ ] Raze towers
+  - [x] Raze towers
   - [ ] ~~Use of animated gifs~~
   - [ ] Javadocs documentation completed
   - [ ] ~~Magical mystery options of impressive quality~~
