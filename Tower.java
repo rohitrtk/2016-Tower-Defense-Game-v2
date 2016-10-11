@@ -76,6 +76,22 @@ public class Tower extends Actor
      */
     public void act() 
     {
+        MouseInfo mouse = Greenfoot.getMouseInfo();
+        
+        if(mouse != null)
+        {
+            if(Greenfoot.mousePressed(this) && mouse.getButton() == 3)
+            {
+                this.destroy();
+                if(this instanceof WaterTower) Map1.setMoney(Map1.getMoney() + WaterTower.cost);
+                else if(this instanceof FireTower) Map1.setMoney(Map1.getMoney() + FireTower.cost);
+                else if(this instanceof BlackTower) Map1.setMoney(Map1.getMoney() + BlackTower.cost);
+                else if(this instanceof PsychoTower) Map1.setMoney(Map1.getMoney() + PsychoTower.cost);
+                else Map1.setMoney(Map1.getMoney() + cost);
+                return;
+            }
+        }
+        
         if(isPlaced)
         {
             // Shooting algorithm
@@ -93,8 +109,6 @@ public class Tower extends Actor
                     //System.out.println(timer);
                 }
             }
-            
-
         }
         
         if(isDestroyed) 

@@ -36,7 +36,8 @@ public class Enemy extends AbstEnemy
         this.y = y;
         
         //currentWaypoint = 0;
-        waypoints = Map1.getWaypoints();
+        if(world instanceof Map1) waypoints = Map1.getWaypoints();
+        else if(world instanceof Map2) waypoints = Map2.waypoints;
         
         world.addObject(this, x, y);                                               
         turnTowards(waypoints.get(currentWaypoint+1).getX(), waypoints.get(currentWaypoint+1).getY());
@@ -63,11 +64,12 @@ public class Enemy extends AbstEnemy
         for(Actor a : touching)
         {          
             // If touching a waypoint, turn to next waypoint
+            
             if(x == (waypoints.get(currentWaypoint+1).getX()) &&
                 y == waypoints.get(currentWaypoint+1).getY())
             {
                 currentWaypoint++;
-                if(currentWaypoint > waypoints.size()) return;
+                if(currentWaypoint >= waypoints.size() - 1) return;
                 turnTowards(waypoints.get(currentWaypoint+1).getX(), waypoints.get(currentWaypoint+1).getY());
             }
             
@@ -87,9 +89,10 @@ public class Enemy extends AbstEnemy
             destroy();
             Greenfoot.playSound("ratdead.wav");
             //death.play();
-        } else if (isAtEdge() && currentWaypoint < waypoints.size()){
+        } else if ((isAtEdge() && currentWaypoint < waypoints.size()) || currentWaypoint == waypoints.size()){
             destroy();
-            Map1.setHp(Map1.getHp() - damage);
+            if(world instanceof Map1) Map1.setHp(Map1.getHp() - damage);
+            else if(world instanceof Map2) Map2.setHp(Map2.getHp() - damage);
         }
     }    
     

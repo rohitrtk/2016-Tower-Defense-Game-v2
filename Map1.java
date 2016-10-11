@@ -236,44 +236,43 @@ public class Map1 extends World
         }
         
         if(spawn)
-            {  
-               if(enemNumber < (2 * round) + 3 && round != 0)
+        {  
+            if(enemNumber < (2 * round) + 3 && round != 0)
+            {
+               System.out.println(chance);
+               double random = Math.ceil(Math.random() * chance);
+                  
+               if(random == 1)
                {
-                   double random = Math.ceil(Math.random() * chance);
-                   
-                   if(random == 1)
-                   {
-                       enemies.add(enemNumber, new Rat1(this, waypoints.get(0).getX(), waypoints.get(0).getY()));
-                   } else if(random == 2)
-                   {
-                       enemies.add(enemNumber, new Rat2(this, waypoints.get(0).getX(), waypoints.get(0).getY()));
-                   } else if(random == 3)
-                   {
-                       enemies.add(enemNumber, new Rat3(this, waypoints.get(0).getX(), waypoints.get(0).getY()));
-                   } else if(random == 4)
-                   {
-                       enemies.add(enemNumber, new Rat4(this, waypoints.get(0).getX(), waypoints.get(0).getY()));
-                   }
-                   
-                   
-                   enemNumber++;
-               } else if(!enemies.isEmpty()){
-                   enemies.removeAll(enemies);
-                   playButton.setIsPlaying(false);
-               } else if(playButton.getIsPlaying())
+                   enemies.add(enemNumber, new Rat1(this, waypoints.get(0).getX(), waypoints.get(0).getY()));
+               } else if(random == 2)
                {
-                   round++;
-                   enemNumber = 0;
+                   enemies.add(enemNumber, new Rat2(this, waypoints.get(0).getX(), waypoints.get(0).getY()));
+               } else if(random == 3)
+               {
+                   enemies.add(enemNumber, new Rat3(this, waypoints.get(0).getX(), waypoints.get(0).getY()));
+               } else if(random == 4)
+               {
+                   enemies.add(enemNumber, new Rat4(this, waypoints.get(0).getX(), waypoints.get(0).getY()));
                }
-               spawn = false;
-               timer = 0;
-            } else {
+               enemNumber++;
+            } else if(!enemies.isEmpty()){
+               enemies.removeAll(enemies);
+               playButton.setIsPlaying(false);
+            } else if(playButton.getIsPlaying())
+            {
+               round++;
+               enemNumber = 0;
+            }
+            spawn = false;
+            timer = 0;
+        } else {
                timer++;
-               if(round == 0) return;
-               else if(timer % 0.6 * round == 0)
+               //if(round == 0) return;
+               if(timer % 60 == 0)
                {  
                    spawn = true;
                }
-           }
         }
-   }
+    }
+}
