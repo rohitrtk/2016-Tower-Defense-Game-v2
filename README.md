@@ -5,12 +5,12 @@
 **List of things required for 3**
   - [x] Different types of typwers with different abilities
   - [x] A suite of sounds
-  - [ ] Variety of enenmies
+  - [x] Variety of enenmies
   - [x] Progession
-  - [ ] Multiple screens (Menu, Help, Play, Etc)
+  - [x] Multiple screens (Menu, Help, Play, Etc)
   - [x] Tower currency
   - [x] Tower GUI
-  - [ ] Win/Lose state
+  - [x] Win/Lose state
   
 **List of things required for 4+**
   - [ ] Multiple maps
