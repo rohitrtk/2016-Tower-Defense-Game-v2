@@ -20,6 +20,8 @@ public class Map1 extends World
     private int enemNumber;                             // The max number of enemies in the round        
     private int timer;                                  // Timer for enemies spawning
     private boolean spawn;                              // Can the enemies spawn?
+    private int chance;
+    private boolean stop;
     
     private static int money;
     private static int hp;                              // The players hp
@@ -31,6 +33,7 @@ public class Map1 extends World
     private HP hpGUI;
     private Money moneyGUI;
     
+
     private boolean win;
     private boolean loss;
     
@@ -62,6 +65,8 @@ public class Map1 extends World
         }
 
         // Init variables
+        chance = 1;
+        stop = false;
         enemies = new ArrayList<Enemy>();
         enemNumber = 0;
         win = false;
@@ -122,6 +127,18 @@ public class Map1 extends World
      */
     public void act()
     {    
+        if(round % 10 == 0)
+        {
+            if(!stop)
+            {
+                chance++;
+                System.out.println("Upped");
+                stop = true;
+            }
+        } else {
+            stop = false;
+        }
+                         
         if(win) Greenfoot.setWorld(new WinScreen());
         
         if(hp < 1) 
@@ -222,7 +239,23 @@ public class Map1 extends World
             {  
                if(enemNumber < (2 * round) + 3 && round != 0)
                {
-                   enemies.add(enemNumber, new Rat2(this, waypoints.get(0).getX(), waypoints.get(0).getY()));
+                   double random = Math.ceil(Math.random() * chance);
+                   
+                   if(random == 1)
+                   {
+                       enemies.add(enemNumber, new Rat1(this, waypoints.get(0).getX(), waypoints.get(0).getY()));
+                   } else if(random == 2)
+                   {
+                       enemies.add(enemNumber, new Rat2(this, waypoints.get(0).getX(), waypoints.get(0).getY()));
+                   } else if(random == 3)
+                   {
+                       enemies.add(enemNumber, new Rat3(this, waypoints.get(0).getX(), waypoints.get(0).getY()));
+                   } else if(random == 4)
+                   {
+                       enemies.add(enemNumber, new Rat4(this, waypoints.get(0).getX(), waypoints.get(0).getY()));
+                   }
+                   
+                   
                    enemNumber++;
                } else if(!enemies.isEmpty()){
                    enemies.removeAll(enemies);
@@ -236,7 +269,8 @@ public class Map1 extends World
                timer = 0;
             } else {
                timer++;
-               if(timer % 60 == 0)
+               if(round == 0) return;
+               else if(timer % 0.6 * round == 0)
                {  
                    spawn = true;
                }

@@ -6,17 +6,17 @@ import greenfoot.*;
  * @author Rohit Terry Kisto 
  * @version 2016/9/21
  */
-public class Rat2 extends Enemy
+public class Rat3 extends Enemy
 {    
     /**
      * Constructs a new Rat2
      */
-    public Rat2(World world, int x, int y)
+    public Rat3(World world, int x, int y)
     {
         super(world, x, y);
         currentWaypoint = 0;
-        moveSpeed = 1;
-        hp = 120;
+        moveSpeed = 3;
+        hp = 200;
     }
     
     /**

@@ -35,7 +35,7 @@ public class Enemy extends AbstEnemy
         this.x = x;
         this.y = y;
         
-        currentWaypoint = 0;
+        //currentWaypoint = 0;
         waypoints = Map1.getWaypoints();
         
         world.addObject(this, x, y);                                               
@@ -158,5 +158,15 @@ public class Enemy extends AbstEnemy
     public boolean checkHit()
     {
         return false;
+    }
+    
+    protected void setWaypoint(int i)
+    {
+        this.currentWaypoint = currentWaypoint;
+    }
+    
+    protected int getWaypoint()
+    {
+        return currentWaypoint;
     }
 }
