@@ -10,6 +10,14 @@ public class FireTower extends Tower
 {
     public static final int cost = 700;                   // The cost for the tower
     
+    private String[] imagePaths = 
+    {
+        "fire_tower.png",
+        "fire_tower_1.png",
+        "fire_tower_2.png",
+        "fire_tower_3.png"
+    };
+    
     /**
      * Constructs a Tower
      * @param World world
@@ -26,6 +34,11 @@ public class FireTower extends Tower
         isAbleToShoot = true;                                         // This tower can shoot right now
         timer = 0;                 
         isDestroyed = false;
+        
+        for(int i = 0;i < images.length;i++)
+        {
+            images[i] = new GreenfootImage(imagePaths[i]);
+        }
     }
     
     /**

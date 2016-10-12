@@ -16,7 +16,7 @@ public class Rat2 extends Enemy
         super(world, x, y);
         currentWaypoint = 0;
         moveSpeed = 1;
-        hp = 120;
+        hp = 250;
     }
     
     /**

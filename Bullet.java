@@ -82,6 +82,6 @@ public class Bullet extends Actor
      */
     public int getBulletDamage()
     {
-        return damage;
+        return (damage * Tower.getLevel()) + 50;
     }
 }

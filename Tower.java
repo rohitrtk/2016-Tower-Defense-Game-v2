@@ -20,9 +20,17 @@ public class Tower extends Actor
     protected boolean isAbleToShoot;      // Is the tower able to shoot right now
     protected boolean isPlaced;
     protected boolean isDestroyed;
-    protected int level;
+    protected static int level;
+    protected GreenfootImage[] images;
+    private String[] imagePaths = 
+    {
+        "arcane_tower.png",
+        "arcane_tower_0.png",
+        "arcane_tower_1.png",
+        "arcane_tower_2.png"
+    };
+    
     protected final GreenfootSound fireSound = new GreenfootSound("fire.wav");
-    protected LevelLabel levelLabel;
     
     public static final int cost = 100;                   // The cost for the tower
     
@@ -61,9 +69,18 @@ public class Tower extends Actor
         this.x = x;
         this.y = y;
         this.isPlaced = true;
+
+        images = new GreenfootImage[4];
+        if(!(this instanceof FireTower || this instanceof WaterTower || this instanceof
+            BlackTower || this instanceof PsychoTower))
+        {
+            for(int i = 0;i < images.length;i++)
+            {
+                images[i] = new GreenfootImage(imagePaths[i]);
+            }
+        }
         
         level = 1;
-        levelLabel = new LevelLabel(world, x, y, "" + level);
         cooldownTime = 72;
         range = 150;                                                            // 'Default' range for tower, will be overriden
         world.addObject(this, x, y);                                  // Add this to object to the world
@@ -82,7 +99,12 @@ public class Tower extends Actor
     public void act() 
     {
         //HERE
-        levelLabel.setLabel("" + level);
+        
+        if(level == 1) setImage(images[0]);
+        else if(level == 2) setImage(images[1]);
+        else if(level == 3) setImage(images[2]);
+        else if(level == 4) setImage(images[3]);
+        
         MouseInfo mouse = Greenfoot.getMouseInfo();
         
         if(mouse != null)
@@ -115,7 +137,65 @@ public class Tower extends Actor
                         else Map3.setMoney(Map3.getMoney() + cost);
                     }
                     return;
-                } else if(UpgradeButton.selected && level < 3) {
+                } else if(UpgradeButton.selected && level < 4) {
+                    if(world instanceof Map1)
+                    {
+                        if(this instanceof WaterTower)
+                        {
+                            if(Map1.getMoney() >= WaterTower.cost * Tower.getLevel())
+                            {
+                                Map1.setMoney(Map1.getMoney() - WaterTower.cost * Tower.getLevel());
+                            }
+                        } else if(this instanceof FireTower) 
+                        {
+                            if(Map1.getMoney() >= FireTower.cost * Tower.getLevel())
+                            {
+                                Map1.setMoney(Map1.getMoney() - FireTower.cost * Tower.getLevel());
+                            } 
+                        } else if(this instanceof BlackTower)
+                        {
+                            if(Map1.getMoney() >= BlackTower.cost * Tower.getLevel())
+                            {
+                                Map1.setMoney(Map1.getMoney() - BlackTower.cost * Tower.getLevel());
+                            }
+                        } else if(this instanceof PsychoTower)
+                        {
+                            if(Map1.getMoney() >= PsychoTower.cost * Tower.getLevel())
+                            {
+                                Map1.setMoney(Map1.getMoney() - PsychoTower.cost * Tower.getLevel())
+                            }
+                        }
+                    } else if(world instanceof Map2)
+                    {
+                        if(this instanceof WaterTower)
+                        {
+                            if(Map2.getMoney() >= WaterTower.cost * Tower.getLevel())
+                            {
+                                Map2.setMoney(Map2.getMoney() - WaterTower.cost * Tower.getLevel());
+                            }
+                        } else if(this instanceof FireTower) 
+                        {
+                            if(Map2.getMoney() >= FireTower.cost * Tower.getLevel())
+                            {
+                                Map2.setMoney(Map2.getMoney() - FireTower.cost * Tower.getLevel());
+                            } 
+                        } else if(this instanceof BlackTower)
+                        {
+                            if(Map2.getMoney() >= BlackTower.cost * Tower.getLevel())
+                            {
+                                Map2.setMoney(Map2.getMoney() - BlackTower.cost * Tower.getLevel());
+                            }
+                        } else if(this instanceof PsychoTower)
+                        {
+                            if(Map2.getMoney() >= PsychoTower.cost * Tower.getLevel())
+                            {
+                                .setMoney(Map1.getMoney() - PsychoTower.cost * Tower.getLevel())
+                            }
+                        }
+                    } else if(world instanceof Map3)
+                    {
+                    }
+                    
                     level++;
                     System.out.println("level up!");
                 }
@@ -228,5 +308,10 @@ public class Tower extends Actor
             }
             i++;                                                                                    // Add one to counter
         }
+    }
+    
+    public static int getLevel()
+    {
+        return Tower.level;
     }
 }

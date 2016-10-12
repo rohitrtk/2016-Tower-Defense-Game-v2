@@ -10,6 +10,14 @@ public class BlackTower extends Tower
 {
     public static final int cost = 1000;                   // The cost for the tower
     
+    private String[] imagePaths = 
+    {
+        "blackhole_tower.png",
+        "blackhole_tower_1.png",
+        "blackhole_tower_2.png",
+        "blackhole_tower_3.png"
+    };
+    
      /**
      * Constructs a Tower
      * @param World world
@@ -27,6 +35,11 @@ public class BlackTower extends Tower
         isAbleToShoot = true;                                                   // This tower can shoot right now
         timer = 0;                 
         isDestroyed = false;
+        
+        for(int i = 0;i < images.length;i++)
+        {
+            images[i] = new GreenfootImage(imagePaths[i]);
+        }
     }
     
     /**

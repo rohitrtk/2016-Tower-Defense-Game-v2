@@ -10,6 +10,14 @@ public class PsychoTower extends Tower
 {
     public static final int cost = 4000;                   // The cost for the tower
     
+    private String[] imagePaths = 
+    {
+        "psycho_tower.png",
+        "psycho_tower_0.png",
+        "psycho_tower_1.png",
+        "psycho_tower_2.png"
+    };
+    
      /**
      * Constructs a Tower
      * @param World world
@@ -27,6 +35,11 @@ public class PsychoTower extends Tower
         isAbleToShoot = true;                                         // This tower can shoot right now
         timer = 0;                 
         isDestroyed = false;
+        
+        for(int i = 0;i < images.length;i++)
+        {
+            images[i] = new GreenfootImage(imagePaths[i]);
+        }
     }
     
     /**

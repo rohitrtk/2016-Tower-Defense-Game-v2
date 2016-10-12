@@ -10,6 +10,14 @@ public class WaterTower extends Tower
 {
     public static final int cost = 300;                   // The cost for the tower
     
+    private String[] imagePaths = 
+    {
+        "water_tower.png",
+        "water_tower_1.png",
+        "water_tower_2.png",
+        "water_tower_3.png"
+    };
+    
      /**
      * Constructs a Tower
      * @param World world
@@ -27,6 +35,11 @@ public class WaterTower extends Tower
         isAbleToShoot = true;                                         // This tower can shoot right now
         timer = 0;                 
         isDestroyed = false;
+        
+        for(int i = 0;i < images.length;i++)
+        {
+            images[i] = new GreenfootImage(imagePaths[i]);
+        }
     }
     
     /**

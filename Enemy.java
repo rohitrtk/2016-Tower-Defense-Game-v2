@@ -15,7 +15,7 @@ public class Enemy extends AbstEnemy
     protected int y;                                        // y position of this object
     protected int currentWaypoint;                          // The current waypoint this object is looking towards
     protected int moveSpeed;                                // Movement speed of this object
-    protected int hp = 100;                                 // Default hit points of this object
+    protected int hp = 160;                                 // Default hit points of this object
     protected int damage = 1;                               // Damage dealt to player if this object reaches the end
     protected final GreenfootSound death = new GreenfootSound("ratdead.wav");
     
