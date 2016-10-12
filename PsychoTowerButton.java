@@ -33,13 +33,33 @@ public class PsychoTowerButton extends TowerButton
        // If the mouse is doing something
        if(mouse != null)
        {
-          // If the mouse is clicked on top of the button, spawn a new tower
-          if(Greenfoot.mouseClicked(this) && Map1.getMoney() >= PsychoTower.cost)
+          if(world instanceof Map1)
           {
               // If the mouse is clicked on top of the button, spawn a new tower
-              tempTower = new PsychoTower(this.world, mouse.getX(), mouse.getY());
-              towers.add(tempTower);
-              Map1.setMoney(Map1.getMoney() - PsychoTower.cost);
+              if(Greenfoot.mouseClicked(this) && Map1.getMoney() >= PsychoTower.cost)
+              {
+                  tempTower = new PsychoTower(this.world, mouse.getX(), mouse.getY());
+                  towers.add(tempTower);            // Add the temp tower to the array list of towers
+                  Map1.setMoney(Map1.getMoney() - PsychoTower.cost);
+                }
+          } else if(world instanceof Map2)
+          {
+              // If the mouse is clicked on top of the button, spawn a new tower
+              if(Greenfoot.mouseClicked(this) && Map2.getMoney() >= PsychoTower.cost)
+              {
+                  tempTower = new PsychoTower(this.world, mouse.getX(), mouse.getY());
+                  towers.add(tempTower);            // Add the temp tower to the array list of towers
+                  Map2.setMoney(Map2.getMoney() - PsychoTower.cost);
+              }
+          } else if(world instanceof Map3)
+          {
+              // If the mouse is clicked on top of the button, spawn a new tower
+              if(Greenfoot.mouseClicked(this) && Map3.getMoney() >= PsychoTower.cost)
+              {
+                  tempTower = new PsychoTower(this.world, mouse.getX(), mouse.getY());
+                  towers.add(tempTower);            // Add the temp tower to the array list of towers
+                  Map3.setMoney(Map3.getMoney() - PsychoTower.cost);
+              }
           }
           
           if(Greenfoot.mouseDragged(tempTower) && (towers != null))

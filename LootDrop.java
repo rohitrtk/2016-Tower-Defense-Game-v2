@@ -39,17 +39,19 @@ public class LootDrop extends Bloodstain
             setImage(paths[2]);
             if(world instanceof Map1)Map1.setMoney(Map1.getMoney() + lootWorths[2]);
             else if(world instanceof Map2) Map2.setMoney(Map2.getMoney() + lootWorths[2]);
+            else if(world instanceof Map3) Map3.setMoney(Map3.getMoney() + lootWorths[2]);
         } else if(random > 0 && random < 26) 
         {
             setImage(paths[1]);
             if(world instanceof Map1) Map1.setMoney(Map1.getMoney() + lootWorths[1]);
             else if(world instanceof Map2) Map2.setMoney(Map2.getMoney() + lootWorths[1]);
+            else if(world instanceof Map3) Map3.setMoney(Map3.getMoney() + lootWorths[1]);
         } else 
         {
             setImage(paths[0]);
             if(world instanceof Map1) Map1.setMoney(Map1.getMoney() + lootWorths[0]);
             else if(world instanceof Map2) Map2.setMoney(Map2.getMoney() + lootWorths[0]);
-            
+            else if(world instanceof Map3) Map3.setMoney(Map3.getMoney() + lootWorths[0]);
         }
     }
     

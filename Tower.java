@@ -20,7 +20,9 @@ public class Tower extends Actor
     protected boolean isAbleToShoot;      // Is the tower able to shoot right now
     protected boolean isPlaced;
     protected boolean isDestroyed;
+    protected int level;
     protected final GreenfootSound fireSound = new GreenfootSound("fire.wav");
+    protected LevelLabel levelLabel;
     
     public static final int cost = 100;                   // The cost for the tower
     
@@ -35,6 +37,7 @@ public class Tower extends Actor
         this.y = y;
         this.isPlaced = true;
         
+        level = 1;
         cooldownTime = 72;
         range = 100;                                                            // 'Default' range for tower, will be overriden
         isAbleToShoot = true;
@@ -59,6 +62,8 @@ public class Tower extends Actor
         this.y = y;
         this.isPlaced = true;
         
+        level = 1;
+        levelLabel = new LevelLabel(world, x, y, "" + level);
         cooldownTime = 72;
         range = 150;                                                            // 'Default' range for tower, will be overriden
         world.addObject(this, x, y);                                  // Add this to object to the world
@@ -76,19 +81,44 @@ public class Tower extends Actor
      */
     public void act() 
     {
+        //HERE
+        levelLabel.setLabel("" + level);
         MouseInfo mouse = Greenfoot.getMouseInfo();
         
         if(mouse != null)
         {
-            if(Greenfoot.mousePressed(this) && mouse.getButton() == 3)
+            if(Greenfoot.mousePressed(this))
             {
-                this.destroy();
-                if(this instanceof WaterTower) Map1.setMoney(Map1.getMoney() + WaterTower.cost);
-                else if(this instanceof FireTower) Map1.setMoney(Map1.getMoney() + FireTower.cost);
-                else if(this instanceof BlackTower) Map1.setMoney(Map1.getMoney() + BlackTower.cost);
-                else if(this instanceof PsychoTower) Map1.setMoney(Map1.getMoney() + PsychoTower.cost);
-                else Map1.setMoney(Map1.getMoney() + cost);
-                return;
+                if(mouse.getButton() == 3)
+                {
+                    this.destroy();
+                    if(world instanceof Map1)
+                    {
+                        if(this instanceof WaterTower) Map1.setMoney(Map1.getMoney() + WaterTower.cost);
+                        else if(this instanceof FireTower) Map1.setMoney(Map1.getMoney() + FireTower.cost);
+                        else if(this instanceof BlackTower) Map1.setMoney(Map1.getMoney() + BlackTower.cost);
+                        else if(this instanceof PsychoTower) Map1.setMoney(Map1.getMoney() + PsychoTower.cost);
+                        else Map1.setMoney(Map1.getMoney() + cost);
+                    }else if(world instanceof Map2)
+                    {
+                        if(this instanceof WaterTower) Map2.setMoney(Map2.getMoney() + WaterTower.cost);
+                        else if(this instanceof FireTower) Map2.setMoney(Map2.getMoney() + FireTower.cost);
+                        else if(this instanceof BlackTower) Map2.setMoney(Map2.getMoney() + BlackTower.cost);
+                        else if(this instanceof PsychoTower) Map2.setMoney(Map2.getMoney() + PsychoTower.cost);
+                        else Map2.setMoney(Map2.getMoney() + cost);
+                    } else if(world instanceof Map3)
+                    {
+                        if(this instanceof WaterTower) Map3.setMoney(Map3.getMoney() + WaterTower.cost);
+                        else if(this instanceof FireTower) Map3.setMoney(Map3.getMoney() + FireTower.cost);
+                        else if(this instanceof BlackTower) Map3.setMoney(Map3.getMoney() + BlackTower.cost);
+                        else if(this instanceof PsychoTower) Map3.setMoney(Map3.getMoney() + PsychoTower.cost);
+                        else Map3.setMoney(Map3.getMoney() + cost);
+                    }
+                    return;
+                } else if(UpgradeButton.selected && level < 3) {
+                    level++;
+                    System.out.println("level up!");
+                }
             }
         }
         

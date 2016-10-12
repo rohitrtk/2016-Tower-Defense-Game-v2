@@ -32,7 +32,7 @@ public class Map1 extends World
     private TowerButton[] towerButtons;                 // Tower Buttons
     private HP hpGUI;
     private Money moneyGUI;
-    
+    private UpgradeButton upgradeButton;
 
     private boolean win;
     private boolean loss;
@@ -212,6 +212,7 @@ public class Map1 extends World
         roundGUI = new Round(this, 12 * 60, 20, round);
         hpGUI = new HP(this, 12 * 60, 400, hp);
         moneyGUI = new Money(this, 12 * 60, 300, money);
+        upgradeButton = new UpgradeButton(this, 12 * 60, 350);
         
         towerButtons = new TowerButton[5];
         towerButtons[0] = new TowerButton(this, 12 * 60 - 30, 50);

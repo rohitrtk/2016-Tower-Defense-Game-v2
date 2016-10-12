@@ -32,16 +32,34 @@ public class BlackTowerButton extends TowerButton
       
        if(mouse != null)
        {
-          // If the mouse is doing something
-          if(Greenfoot.mouseClicked(this) && Map1.getMoney() >= BlackTower.cost)
+          if(world instanceof Map1)
           {
               // If the mouse is clicked on top of the button, spawn a new tower
-              tempTower = new BlackTower(this.world, mouse.getX(), mouse.getY());
-              towers.add(tempTower);
-              Map1.setMoney(Map1.getMoney() - BlackTower.cost);
+              if(Greenfoot.mouseClicked(this) && Map1.getMoney() >= BlackTower.cost)
+              {
+                  tempTower = new BlackTower(this.world, mouse.getX(), mouse.getY());
+                  towers.add(tempTower);            // Add the temp tower to the array list of towers
+                  Map1.setMoney(Map1.getMoney() - BlackTower.cost);
+                }
+          } else if(world instanceof Map2)
+          {
+              // If the mouse is clicked on top of the button, spawn a new tower
+              if(Greenfoot.mouseClicked(this) && Map2.getMoney() >= BlackTower.cost)
+              {
+                  tempTower = new BlackTower(this.world, mouse.getX(), mouse.getY());
+                  towers.add(tempTower);            // Add the temp tower to the array list of towers
+                  Map2.setMoney(Map2.getMoney() - BlackTower.cost);
+              }
+          } else if(world instanceof Map3)
+          {
+              // If the mouse is clicked on top of the button, spawn a new tower
+              if(Greenfoot.mouseClicked(this) && Map3.getMoney() >= BlackTower.cost)
+              {
+                  tempTower = new BlackTower(this.world, mouse.getX(), mouse.getY());
+                  towers.add(tempTower);            // Add the temp tower to the array list of towers
+                  Map3.setMoney(Map3.getMoney() - BlackTower.cost);
+              }
           }
-          
-          
           // If the mouse is dragged on top of the temp tower that was just spawned
           if(Greenfoot.mouseDragged(tempTower) && (towers != null))
           {
