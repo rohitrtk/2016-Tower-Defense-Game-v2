@@ -13,7 +13,7 @@
   - [x] Win/Lose state
   
 **List of things required for 4+**
-  - [ ] Multiple maps
+  - [x] Multiple maps
   - [ ] ~~Health bars~~
   - [ ] Easter eggs
   - [x] A coherent game theme
