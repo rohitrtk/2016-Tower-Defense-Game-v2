@@ -21,8 +21,8 @@
   - [ ] Start at various levels
   - [ ] Save progress
   - [ ] Pause/restart
-  - [ ] Home class
-  - [ ] Upgrades of towers
+  - [x] Home class
+  - [x] Upgrades of towers
   - [x] Raze towers
   - [ ] ~~Use of animated gifs~~
   - [ ] Javadocs documentation completed
