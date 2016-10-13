@@ -14,7 +14,7 @@
   
 **List of things required for 4+**
   - [x] Multiple maps
-  - [ ] Health bars
+  - [x] Health bars
   - [ ] Easter eggs
   - [x] A coherent game theme
   - [ ] Challenge levels
