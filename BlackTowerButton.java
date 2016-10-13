@@ -60,12 +60,20 @@ public class BlackTowerButton extends TowerButton
                   Map3.setMoney(Map3.getMoney() - BlackTower.cost);
               }
           }
-          // If the mouse is dragged on top of the temp tower that was just spawned
-          if(Greenfoot.mouseDragged(tempTower) && (towers != null))
+          
+          if(tempTower == null) return;
+          if(Greenfoot.mouseDragged(tempTower) && (towers != null) && tempTower.isPlaced == false)
           {
+			  isSelected = false;
+              //System.out.println(towers.size());
               if(towers.size() - 1 < 0) return;
               else towers.get(towers.size() - 1).setLocation(mouse.getX(), mouse.getY());
-            }
+          }
+
+	 	  if(Greenfoot.mouseDragEnded(tempTower) && !isSelected) 	
+		  {
+		  	 tempTower.isPlaced = true;
+ 		  }
        }
     }
 }

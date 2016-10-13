@@ -37,6 +37,8 @@ public class Map1 extends World
     private boolean win;
     private boolean loss;
     
+    private Castle castle;
+    
     private GreenfootSound bgm;
     // IF YOU WANT TO TURN THE BGM ON OR OFF, CHANGE THE BOOLEAN BELOW!
     private boolean mute = true;
@@ -77,6 +79,7 @@ public class Map1 extends World
         timer = 0;
         spawn = true;
         
+        
         guiHandler();                                   // Loads up the GUI on the right side of the screen
         
         tiles = new Tile[10][14];                       // Sets width and height of tile map
@@ -94,6 +97,8 @@ public class Map1 extends World
                 }
             }
         }
+        
+        castle = new Castle(this, 60, 540);
         
         waypoints = new ArrayList<Waypoint>();          // Waypoint array list
         for(int i = 0;i < 6;i++)

@@ -16,9 +16,9 @@ public class WaterBullet extends Bullet
      * @param double enemy x position
      * @param double enemy y position
      */
-    public WaterBullet(World world, int x, int y, double ex, double ey)
+    public WaterBullet(World world, int x, int y, double ex, double ey, int towerLevel)
     {
-        super(world, x, y, ex, ey);
+        super(world, x, y, ex, ey, towerLevel);
         
         damage = 150;
         velocity = 5;

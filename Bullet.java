@@ -15,6 +15,7 @@ public class Bullet extends Actor
     protected double ey;                                              // Enemies y position
     protected int velocity;                                           // Bullets velocity in all directions
     protected double angle;
+    protected int towerLevel;
     
     private final int baseDamage = 100;                               // The base damage of the tower
     protected int damage = baseDamage * 1;                              // The actual damage of the tower
@@ -27,13 +28,14 @@ public class Bullet extends Actor
      * @param double enemy x position
      * @param double enemy y position
      */
-    public Bullet(World world, int x, int y, double ex, double ey)
+    public Bullet(World world, int x, int y, double ex, double ey, int towerLevel)
     {
         this.world = world;
         this.x = x;
         this.y = y;
         this.ex = ex;
         this.ey = ey;
+        this.towerLevel = towerLevel;
         
         velocity = 10;                                              // Sets the move speed of the bullet
         
@@ -82,6 +84,6 @@ public class Bullet extends Actor
      */
     public int getBulletDamage()
     {
-        return (damage * Tower.getLevel()) + 50;
+        return (damage * towerLevel) + 50;
     }
 }

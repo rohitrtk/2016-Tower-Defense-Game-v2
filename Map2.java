@@ -38,6 +38,8 @@ public class Map2 extends World
     private boolean win;
     private boolean loss;
     
+    private Castle castle;
+    
     private GreenfootSound bgm;
     // IF YOU WANT TO TURN THE BGM ON OR OFF, CHANGE THE BOOLEAN BELOW!
     private boolean mute = true;
@@ -91,6 +93,8 @@ public class Map2 extends World
                 }
             }
         }
+        
+        castle = new Castle(this, 420, 540);
         
         for(int i = 0;i < 7;i++)
         {

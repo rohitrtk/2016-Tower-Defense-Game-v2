@@ -96,6 +96,12 @@ public class Enemy extends AbstEnemy
             if(world instanceof Map1) Map1.setHp(Map1.getHp() - damage);
             else if(world instanceof Map2) Map2.setHp(Map2.getHp() - damage);
             else if(world instanceof Map3) Map3.setHp(Map3.getHp() - damage);
+        } else if(isTouching(Castle.class))
+        {
+            if(world instanceof Map1) Map1.setHp(Map1.getHp() - damage);
+            else if(world instanceof Map2) Map2.setHp(Map2.getHp() - damage);
+            else if(world instanceof Map3) Map3.setHp(Map3.getHp() - damage);
+            world.removeObject(this);
         }
     }    
     

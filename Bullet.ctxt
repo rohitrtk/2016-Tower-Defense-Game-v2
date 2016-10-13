@@ -1,8 +1,8 @@
 #BlueJ class context
 comment0.target=Bullet
 comment0.text=\r\n\ This\ class\ will\ be\ used\ a\ bullet\ for\ the\ basic\ tower\ and\ extended\ upon\ for\ all\ bullets\ in\ the\ game.\r\n\ \r\n\ @author\ Rohit\ Terry\ Kisto\ \r\n\ @version\ 2016/9/30\r\n
-comment1.params=world\ x\ y\ ex\ ey
-comment1.target=Bullet(greenfoot.World,\ int,\ int,\ double,\ double)
+comment1.params=world\ x\ y\ ex\ ey\ towerLevel
+comment1.target=Bullet(greenfoot.World,\ int,\ int,\ double,\ double,\ int)
 comment1.text=\r\n\ Constructs\ the\ Bullet\r\n\ @param\ World\ world\r\n\ @param\ int\ x\ position\r\n\ @param\ int\ y\ position\r\n\ @param\ double\ enemy\ x\ position\r\n\ @param\ double\ enemy\ y\ position\r\n
 comment2.params=
 comment2.target=void\ act()

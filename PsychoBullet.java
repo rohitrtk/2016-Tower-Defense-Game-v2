@@ -16,9 +16,9 @@ public class PsychoBullet extends Bullet
      * @param double enemy x position
      * @param double enemy y position
      */
-    public PsychoBullet(World world, int x, int y, double ex, double ey)
+    public PsychoBullet(World world, int x, int y, double ex, double ey, int towerLevel)
     {
-        super(world, x, y, ex, ey);
+        super(world, x, y, ex, ey, towerLevel);
         
         velocity = 20;
         

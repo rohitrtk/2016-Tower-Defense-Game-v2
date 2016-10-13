@@ -16,9 +16,9 @@ public class FireBullet extends Bullet
      * @param double enemy x position
      * @param double enemy y position
      */
-    public FireBullet(World world, int x, int y, double ex, double ey)
+    public FireBullet(World world, int x, int y, double ex, double ey, int towerLevel)
     {
-        super(world, x, y, ex, ey);
+        super(world, x, y, ex, ey, towerLevel);
         
         damage = 300;
         velocity = 10;

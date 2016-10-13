@@ -20,7 +20,7 @@ public class Tower extends Actor
     protected boolean isAbleToShoot;      // Is the tower able to shoot right now
     protected boolean isPlaced;
     protected boolean isDestroyed;
-    protected static int level;
+    protected int level;
     protected GreenfootImage[] images;
     private String[] imagePaths = 
     {
@@ -81,6 +81,7 @@ public class Tower extends Actor
         }
         
         level = 1;
+		isPlaced = false;
         cooldownTime = 72;
         range = 150;                                                            // 'Default' range for tower, will be overriden
         world.addObject(this, x, y);                                  // Add this to object to the world
@@ -88,7 +89,7 @@ public class Tower extends Actor
         timer = 0;                 
         isDestroyed = false;
         //fireSound.setVolume(100);
-        world.setActOrder(GUI.class, Tile.class, Waypoint.class, Tower.class, Bloodstain.class, 
+        world.setActOrder(GUI.class, Castle.class, Tile.class, Waypoint.class, Tower.class, Bloodstain.class, 
             AbstEnemy.class, Bullet.class);
     }
     
@@ -142,62 +143,129 @@ public class Tower extends Actor
                     {
                         if(this instanceof WaterTower)
                         {
-                            if(Map1.getMoney() >= WaterTower.cost * Tower.getLevel())
+                            if(Map1.getMoney() >= WaterTower.cost * getLevel())
                             {
-                                Map1.setMoney(Map1.getMoney() - WaterTower.cost * Tower.getLevel());
+                                level++;
+                                System.out.println("level up!");
+                                Map1.setMoney(Map1.getMoney() - WaterTower.cost * getLevel());
                             }
                         } else if(this instanceof FireTower) 
                         {
-                            if(Map1.getMoney() >= FireTower.cost * Tower.getLevel())
+                            if(Map1.getMoney() >= FireTower.cost * getLevel())
                             {
-                                Map1.setMoney(Map1.getMoney() - FireTower.cost * Tower.getLevel());
+                                level++;
+                                System.out.println("level up!");
+                                Map1.setMoney(Map1.getMoney() - FireTower.cost * getLevel());
                             } 
                         } else if(this instanceof BlackTower)
                         {
-                            if(Map1.getMoney() >= BlackTower.cost * Tower.getLevel())
+                            if(Map1.getMoney() >= BlackTower.cost * getLevel())
                             {
-                                Map1.setMoney(Map1.getMoney() - BlackTower.cost * Tower.getLevel());
+                                level++;
+                                System.out.println("level up!");
+                                Map1.setMoney(Map1.getMoney() - BlackTower.cost * getLevel());
                             }
                         } else if(this instanceof PsychoTower)
                         {
-                            if(Map1.getMoney() >= PsychoTower.cost * Tower.getLevel())
+                            if(Map1.getMoney() >= PsychoTower.cost * getLevel())
                             {
-                                Map1.setMoney(Map1.getMoney() - PsychoTower.cost * Tower.getLevel())
+                                level++;
+                                System.out.println("level up!");
+                                Map1.setMoney(Map1.getMoney() - PsychoTower.cost * getLevel());
+                            }
+                        } else {
+                            if(Map1.getMoney() >= Tower.cost * getLevel())
+                            {
+                                level++;
+                                System.out.println("level up!");
+                                Map1.setMoney(Map1.getMoney() - Tower.cost * getLevel());
                             }
                         }
                     } else if(world instanceof Map2)
                     {
                         if(this instanceof WaterTower)
                         {
-                            if(Map2.getMoney() >= WaterTower.cost * Tower.getLevel())
+                            if(Map2.getMoney() >= WaterTower.cost * getLevel())
                             {
-                                Map2.setMoney(Map2.getMoney() - WaterTower.cost * Tower.getLevel());
+                                level++;
+                                System.out.println("level up!");
+                                Map2.setMoney(Map2.getMoney() - WaterTower.cost * getLevel());
                             }
                         } else if(this instanceof FireTower) 
                         {
-                            if(Map2.getMoney() >= FireTower.cost * Tower.getLevel())
+                            if(Map2.getMoney() >= FireTower.cost * getLevel())
                             {
-                                Map2.setMoney(Map2.getMoney() - FireTower.cost * Tower.getLevel());
+                                level++;
+                                System.out.println("level up!");
+                                Map2.setMoney(Map2.getMoney() - FireTower.cost * getLevel());
                             } 
                         } else if(this instanceof BlackTower)
                         {
-                            if(Map2.getMoney() >= BlackTower.cost * Tower.getLevel())
+                            if(Map2.getMoney() >= BlackTower.cost * getLevel())
                             {
-                                Map2.setMoney(Map2.getMoney() - BlackTower.cost * Tower.getLevel());
+                                level++;
+                                System.out.println("level up!");
+                                Map2.setMoney(Map2.getMoney() - BlackTower.cost * getLevel());
                             }
                         } else if(this instanceof PsychoTower)
                         {
-                            if(Map2.getMoney() >= PsychoTower.cost * Tower.getLevel())
+                            if(Map2.getMoney() >= PsychoTower.cost * getLevel())
                             {
-                                .setMoney(Map1.getMoney() - PsychoTower.cost * Tower.getLevel())
+                                level++;
+                                System.out.println("level up!");
+                                Map2.setMoney(Map2.getMoney() - PsychoTower.cost * getLevel());
+                            }
+                        } else {
+                            if(Map2.getMoney() >= Tower.cost * getLevel())
+                            {
+                                level++;
+                                System.out.println("level up!");
+                                Map2.setMoney(Map2.getMoney() - Tower.cost * getLevel());
                             }
                         }
                     } else if(world instanceof Map3)
                     {
+                        if(this instanceof WaterTower)
+                        {
+                            if(Map3.getMoney() >= WaterTower.cost * getLevel())
+                            {
+                                level++;
+                                System.out.println("level up!");
+                                Map3.setMoney(Map3.getMoney() - WaterTower.cost * getLevel());
+                            }
+                        } else if(this instanceof FireTower) 
+                        {
+                            if(Map3.getMoney() >= FireTower.cost * getLevel())
+                            {
+                                level++;
+                                System.out.println("level up!");
+                                Map3.setMoney(Map3.getMoney() - FireTower.cost * getLevel());
+                            } 
+                        } else if(this instanceof BlackTower)
+                        {
+                            if(Map3.getMoney() >= BlackTower.cost * getLevel())
+                            {
+                                level++;
+                                System.out.println("level up!");
+                                Map3.setMoney(Map3.getMoney() - BlackTower.cost * getLevel());
+                            }
+                        } else if(this instanceof PsychoTower)
+                        {
+                            if(Map3.getMoney() >= PsychoTower.cost * getLevel())
+                            {
+                                level++;
+                                System.out.println("level up!");
+                                Map3.setMoney(Map3.getMoney() - PsychoTower.cost * getLevel());
+                            }
+                        } else {
+                            if(Map3.getMoney() >= Tower.cost * getLevel())
+                            {
+                                level++;
+                                System.out.println("level up!");
+                                Map3.setMoney(Map3.getMoney() - Tower.cost * getLevel());
+                            }
+                        }
                     }
-                    
-                    level++;
-                    System.out.println("level up!");
                 }
             }
         }
@@ -291,15 +359,15 @@ public class Tower extends Actor
             {   
                 if(this instanceof WaterTower)
                 {
-                    new WaterBullet(world, getX(), getY() - 20, list.get(i).getX(), list.get(i).getY());
+                    new WaterBullet(world, getX(), getY() - 20, list.get(i).getX(), list.get(i).getY(), level);
                 } else if(this instanceof FireTower) {
-                    new FireBullet(world, getX(), getY() - 20, list.get(i).getX(), list.get(i).getY());
+                    new FireBullet(world, getX(), getY() - 20, list.get(i).getX(), list.get(i).getY(), level);
                 } else if(this instanceof BlackTower) {
-                    new BlackBullet(world, getX(), getY() - 20, list.get(i).getX(), list.get(i).getY());
+                    new BlackBullet(world, getX(), getY() - 20, list.get(i).getX(), list.get(i).getY(), level);
                 } else if(this instanceof PsychoTower) {
-                    new PsychoBullet(world, getX(), getY() - 20, list.get(i).getX(), list.get(i).getY());
+                    new PsychoBullet(world, getX(), getY() - 20, list.get(i).getX(), list.get(i).getY(), level);
                 } else {
-                    new Bullet(world, getX(), getY() - 20, list.get(i).getX(), list.get(i).getY());
+                    new Bullet(world, getX(), getY() - 20, list.get(i).getX(), list.get(i).getY(), level);
                 }
                 //fireSound.play();
                 Greenfoot.playSound("fire.wav");        
@@ -310,8 +378,8 @@ public class Tower extends Actor
         }
     }
     
-    public static int getLevel()
+    public int getLevel()
     {
-        return Tower.level;
+        return this.level;
     }
 }
