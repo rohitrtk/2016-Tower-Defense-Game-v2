@@ -25,7 +25,7 @@
   - [x] Upgrades of towers
   - [x] Raze towers
   - [ ] ~~Use of animated gifs~~
-  - [ ] Javadocs documentation completed
+  - [x] Javadocs documentation completed
   - [ ] ~~Magical mystery options of impressive quality~~
 
 
