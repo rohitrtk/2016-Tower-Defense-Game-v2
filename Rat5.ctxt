@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Rat5
-comment0.text=\r\n\ The\ rank\ 2\ of\ the\ rat\ army\r\n\ \r\n\ @author\ Rohit\ Terry\ Kisto\ \r\n\ @version\ 2016/9/21\r\n
+comment0.text=\r\n\ The\ rank\ 5\ of\ the\ rat\ army\r\n\ \r\n\ @author\ Rohit\ Terry\ Kisto\ \r\n\ @version\ 2016/9/21\r\n
 comment1.params=world\ x\ y
 comment1.target=Rat5(greenfoot.World,\ int,\ int)
 comment1.text=\r\n\ Constructs\ a\ new\ Rat2\r\n

@@ -1,10 +1,11 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Castle here.
+ * If an enemy touches an instance of this class, the enemy will be removed and the player will lose health
+ * depending on what enemy touches this
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Rohit Kisto
+ * @version 13/10/2016
  */
 
 public class Castle extends Actor

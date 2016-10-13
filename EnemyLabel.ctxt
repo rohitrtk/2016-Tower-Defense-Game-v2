@@ -1,0 +1,15 @@
+#BlueJ class context
+comment0.target=EnemyLabel
+comment0.text=\r\n\ This\ class\ will\ attach\ a\ 'label'\ to\ an\ enemy\ object\ which\ will\ display\ to\ the\ user\ the\ hp\ \r\n\ of\ the\ enemy\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment1.params=world\ x\ y\ hp
+comment1.target=EnemyLabel(greenfoot.World,\ int,\ int,\ int)
+comment1.text=\r\n\ Constructs\ a\ new\ EnemyLabel\ object\r\n\ @param\ World\ world\r\n\ @param\ int\ x\ position\r\n\ @parma\ int\ y\ position\r\n\ @param\ int\ hp\ of\ enemy\r\n
+comment2.params=
+comment2.target=void\ act()
+comment2.text=\r\n\ Act\ -\ do\ whatever\ the\ EnemyLabel\ wants\ to\ do.\ This\ method\ is\ called\ whenever\r\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n
+comment3.params=hp
+comment3.target=void\ setHp(int)
+comment3.text=\r\n\ This\ method\ will\ set\ the\ hp\ of\ the\ enemy\ label\r\n\ @param\ int\ hp\r\n\ @return\ void\r\n
+comment4.params=
+comment4.target=void\ destroy()
+numComments=5

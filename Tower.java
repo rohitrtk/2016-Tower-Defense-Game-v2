@@ -6,7 +6,7 @@ import java.util.Collections;
  * This class will be the basic tower of the game and will be extended upon for all towers in the game
  * 
  * @author Rohit Terry Kisto 
- * @version 2016/9/19
+ * @version 13/10/2016
  */
 public class Tower extends Actor
 {
@@ -18,11 +18,11 @@ public class Tower extends Actor
     protected float cooldownTime;         // The cooldown time in seconds between each shot (Mutiply original time by 36 until FPS is established)
     protected String imagePath;           // Image path
     protected boolean isAbleToShoot;      // Is the tower able to shoot right now
-    protected boolean isPlaced;
-    protected boolean isDestroyed;
-    protected int level;
-    protected GreenfootImage[] images;
-    private String[] imagePaths = 
+    protected boolean isPlaced;           // Is this tower placed down?
+    protected boolean isDestroyed;        // Is this tower destroyed?
+    protected int level;                  // Upgrade level of the tower
+    protected GreenfootImage[] images;    // Array of images, used for changing the image of a leveled up tower
+    private String[] imagePaths =         // Array of strings which are the path to leveld up towers 
     {
         "arcane_tower.png",
         "arcane_tower_0.png",
@@ -30,7 +30,7 @@ public class Tower extends Actor
         "arcane_tower_2.png"
     };
     
-    protected final GreenfootSound fireSound = new GreenfootSound("fire.wav");
+    protected final GreenfootSound fireSound = new GreenfootSound("fire.wav");  // Sound the tower makes when it shoots a bullet
     
     public static final int cost = 100;                   // The cost for the tower
     
@@ -52,7 +52,7 @@ public class Tower extends Actor
         timer = 0;
         isDestroyed = false;
         //fireSound.setVolume(50);
-        world.setActOrder(GUI.class, Tile.class, Waypoint.class, Tower.class, Bloodstain.class, 
+        world.setActOrder(EasterEgg.class, GUI.class, Tile.class, Waypoint.class, Tower.class, Bloodstain.class, 
             AbstEnemy.class, Bullet.class);
     }
     
@@ -81,7 +81,7 @@ public class Tower extends Actor
         }
         
         level = 1;
-		isPlaced = false;
+        isPlaced = false;
         cooldownTime = 72;
         range = 150;                                                            // 'Default' range for tower, will be overriden
         world.addObject(this, x, y);                                  // Add this to object to the world
@@ -378,6 +378,10 @@ public class Tower extends Actor
         }
     }
     
+    /**
+     * Returns the current level of this tower
+     * @return int level
+     */
     public int getLevel()
     {
         return this.level;

@@ -10,7 +10,7 @@ public class WaterTower extends Tower
 {
     public static final int cost = 300;                   // The cost for the tower
     
-    private String[] imagePaths = 
+    private String[] imagePaths =                         // Array of strings which are the path to leveld up towers            
     {
         "water_tower.png",
         "water_tower_1.png",

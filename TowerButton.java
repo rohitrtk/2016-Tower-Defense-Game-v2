@@ -62,7 +62,7 @@ public class TowerButton extends GUI
        {
           if(world instanceof Map1)
           {
-              // If the mouse is clicked on top of the button, spawn a new tower
+              
               if(Greenfoot.mouseClicked(this) && Map1.getMoney() >= Tower.cost)
               {
                   tempTower = new Tower(this.world, mouse.getX(), mouse.getY());
@@ -71,7 +71,7 @@ public class TowerButton extends GUI
                 }
           } else if(world instanceof Map2)
           {
-              // If the mouse is clicked on top of the button, spawn a new tower
+              
               if(Greenfoot.mouseClicked(this) && Map2.getMoney() >= Tower.cost)
               {
                   tempTower = new Tower(this.world, mouse.getX(), mouse.getY());
@@ -80,7 +80,7 @@ public class TowerButton extends GUI
               }
           } else if(world instanceof Map3)
           {
-              // If the mouse is clicked on top of the button, spawn a new tower
+              
               if(Greenfoot.mouseClicked(this) && Map3.getMoney() >= Tower.cost)
               {
                   tempTower = new Tower(this.world, mouse.getX(), mouse.getY());
@@ -106,6 +106,10 @@ public class TowerButton extends GUI
        }
     }
     
+    /**
+     * Destroys this objects
+     * @return void
+     */
     protected void destroy()
     {
         this.world.removeObject(this);

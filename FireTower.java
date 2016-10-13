@@ -10,7 +10,7 @@ public class FireTower extends Tower
 {
     public static final int cost = 700;                   // The cost for the tower
     
-    private String[] imagePaths = 
+    private String[] imagePaths =                         // Array of strings which are the path to leveld up towers 
     {
         "fire_tower.png",
         "fire_tower_1.png",

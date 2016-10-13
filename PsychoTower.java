@@ -10,7 +10,7 @@ public class PsychoTower extends Tower
 {
     public static final int cost = 4000;                   // The cost for the tower
     
-    private String[] imagePaths = 
+    private String[] imagePaths =                          // Array of strings which are the path to leveld up towers 
     {
         "psycho_tower.png",
         "psycho_tower_0.png",

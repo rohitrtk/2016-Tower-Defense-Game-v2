@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Bloodstain
-comment0.text=\r\n\ This\ will\ be\ used\ as\ an\ after\ effect\ for\ a\ dead\ enemy\ \r\n\ \r\n\ @author\ Rohit\ Terry\ Kisto\r\n\ @version\ 2016/9/30\r\n
+comment0.text=\r\n\ This\ will\ be\ used\ as\ an\ after\ effect\ for\ a\ dead\ enemy\ \r\n\ \r\n\ @author\ Rohit\ Terry\ Kisto\r\n\ @version\ 30/9/2016\r\n
 comment1.params=world\ x\ y
 comment1.target=Bloodstain(greenfoot.World,\ int,\ int)
 comment1.text=\r\n\ Constructs\ a\ new\ bloodstain\r\n\ @param\ World\ world\r\n\ @param\ int\ x\ position\r\n\ @param\ int\ y\ position\r\n

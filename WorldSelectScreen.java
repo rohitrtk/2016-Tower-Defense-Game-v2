@@ -1,10 +1,11 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class WorldSelectScreen here.
+ * This class displays a screen after the player clicks play on the title screen,
+ * will display 4 buttons, the back button and 3 map selecte buttons
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Rohit Kisto
+ * @version 13/10/2016
  */
 public class WorldSelectScreen extends World
 {

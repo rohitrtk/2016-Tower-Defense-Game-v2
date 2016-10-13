@@ -14,11 +14,11 @@ public class Bullet extends Actor
     protected double ex;                                              // Enemies x position
     protected double ey;                                              // Enemies y position
     protected int velocity;                                           // Bullets velocity in all directions
-    protected double angle;
-    protected int towerLevel;
+    protected double angle;                                           // The angle at which the bullet will be shooting at
+    protected int towerLevel;                                         // The level of the tower this bullet has come from
     
     private final int baseDamage = 100;                               // The base damage of the tower
-    protected int damage = baseDamage * 1;                              // The actual damage of the tower
+    protected int damage = baseDamage * 1;                            // The actual damage of the tower
     
     /**
      * Constructs the Bullet
@@ -39,7 +39,7 @@ public class Bullet extends Actor
         
         velocity = 10;                                              // Sets the move speed of the bullet
         
-        angle = Math.atan2(ey - y, ex - x);                  // Angle is the same as the inverse tangent of the difference between
+        angle = Math.atan2(ey - y, ex - x);                         // Angle is the same as the inverse tangent of the difference between
                                                                     // the enemies position and the towers position
         setRotation((int)(Math.toDegrees((angle))));                // Aim towards x angle
         
@@ -52,7 +52,7 @@ public class Bullet extends Actor
      */
     public void act() 
     {
-        move(velocity);
+        move(velocity);                                             // Move the bullet by velocity speed
         if(isAtEdge() || getX() > 10 * 60)
         {
             destroy();                                              // If the bullet is on the edge of the screen, delete it

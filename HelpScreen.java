@@ -1,10 +1,11 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class HelpScreen here.
+ * This class will display information helpful to the player when the player
+ * clicks the help button
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Rohit Kisto
+ * @version 13/10/2016
  */
 public class HelpScreen extends World
 {

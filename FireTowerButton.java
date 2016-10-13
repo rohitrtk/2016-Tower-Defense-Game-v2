@@ -9,7 +9,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class FireTowerButton extends TowerButton
 {
     /**
-     * Constructs a new tower button
+     * Constructs a new fire tower button
      * @param World world
      * @param int x position
      * @param int y position
@@ -34,7 +34,7 @@ public class FireTowerButton extends TowerButton
        {
           if(world instanceof Map1)
           {
-              // If the mouse is clicked on top of the button, spawn a new tower
+              
               if(Greenfoot.mouseClicked(this) && Map1.getMoney() >= FireTower.cost)
               {
                   tempTower = new FireTower(this.world, mouse.getX(), mouse.getY());
@@ -43,7 +43,7 @@ public class FireTowerButton extends TowerButton
                 }
           } else if(world instanceof Map2)
           {
-              // If the mouse is clicked on top of the button, spawn a new tower
+              
               if(Greenfoot.mouseClicked(this) && Map2.getMoney() >= FireTower.cost)
               {
                   tempTower = new FireTower(this.world, mouse.getX(), mouse.getY());
@@ -52,7 +52,7 @@ public class FireTowerButton extends TowerButton
               }
           } else if(world instanceof Map3)
           {
-              // If the mouse is clicked on top of the button, spawn a new tower
+              
               if(Greenfoot.mouseClicked(this) && Map3.getMoney() >= FireTower.cost)
               {
                   tempTower = new FireTower(this.world, mouse.getX(), mouse.getY());

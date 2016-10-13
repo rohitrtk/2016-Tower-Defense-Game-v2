@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=UpgradeButton
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ UpgradeButton\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ This\ class\ will\ allow\ the\ player\ to\ click\ this\ object\ which\ willl\ then\ enable\ the\r\n\ player\ to\ upgrade\ their\ towers\ depending\ on\ how\ much\ money\ they\ have\r\n\ \r\n\ @author\ Rohit\ Kisto\r\n\ @version\ 13/10/2016\r\n
 comment1.params=world\ x\ y
 comment1.target=UpgradeButton(greenfoot.World,\ int,\ int)
 comment2.params=

@@ -4,7 +4,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * This will be used as an after effect for a dead enemy 
  * 
  * @author Rohit Terry Kisto
- * @version 2016/9/30
+ * @version 30/9/2016
  */
 public class Bloodstain extends Actor
 {

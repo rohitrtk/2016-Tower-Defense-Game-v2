@@ -9,9 +9,9 @@ import java.awt.Color;
  */
 public class HP extends GUI
 {
-    int hp;
-    GreenfootImage image;                   // A greenfoot image to display text
-    Color colour;                           // Colour object for the background
+    private int hp;
+    private GreenfootImage image;                   // A greenfoot image to display text
+    private Color colour;                           // Colour object for the background
     
     /**
      * Constructs a new HP label

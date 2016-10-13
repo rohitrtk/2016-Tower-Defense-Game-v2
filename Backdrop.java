@@ -19,6 +19,7 @@ public class Backdrop extends GUI
         super(world, x, y);
         imagePath = "backdrop.png";
         
+        // Set image to the backdrop image
         setImage(imagePath);
         world.addObject(this, x, y);
     }

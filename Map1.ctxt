@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Map1
-comment0.text=\r\n\ This\ class\ is\ where\ the\ actual\ game\ is\ housed,\ everything\ gameplay\ related\r\n\ is\ based\ here.\r\n\ \r\n\ @author\ Rohit\ Terry\ Kisto\r\n\ @version\ 2016/9/30\r\n
+comment0.text=\r\n\ This\ class\ displays\ map\ \#1,\ for\ whatever\ reason\ greenfoot\ launches\ this\ class\ first\ so\r\n\ a\ new\ titlescreen\ is\ called\ from\ this\ class\r\n\ \r\n\ @author\ Rohit\ Terry\ Kisto\r\n\ @version\ 13/10/2016\r\n
 comment1.params=
 comment1.target=Map1()
 comment1.text=\r\n\ This\ method\ constructs\ Map1\ and\ initializes\ the\ world,\ the\ tiles\ on\ the\ world\r\n\ the\ arraylist\ of\ waypoints\ and\ any\ enemies/towers\r\n

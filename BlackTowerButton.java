@@ -34,7 +34,7 @@ public class BlackTowerButton extends TowerButton
        {
           if(world instanceof Map1)
           {
-              // If the mouse is clicked on top of the button, spawn a new tower
+              
               if(Greenfoot.mouseClicked(this) && Map1.getMoney() >= BlackTower.cost)
               {
                   tempTower = new BlackTower(this.world, mouse.getX(), mouse.getY());
@@ -43,7 +43,7 @@ public class BlackTowerButton extends TowerButton
                 }
           } else if(world instanceof Map2)
           {
-              // If the mouse is clicked on top of the button, spawn a new tower
+              
               if(Greenfoot.mouseClicked(this) && Map2.getMoney() >= BlackTower.cost)
               {
                   tempTower = new BlackTower(this.world, mouse.getX(), mouse.getY());
@@ -52,7 +52,7 @@ public class BlackTowerButton extends TowerButton
               }
           } else if(world instanceof Map3)
           {
-              // If the mouse is clicked on top of the button, spawn a new tower
+              
               if(Greenfoot.mouseClicked(this) && Map3.getMoney() >= BlackTower.cost)
               {
                   tempTower = new BlackTower(this.world, mouse.getX(), mouse.getY());

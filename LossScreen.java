@@ -1,10 +1,10 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class LossScreen here.
+ * This class will display the loss screen when the player has less than 1 health
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Rohit Kisto
+ * @version 13/10/2016
  */
 public class LossScreen extends World
 {

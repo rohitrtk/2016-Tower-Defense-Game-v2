@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=LootDrop
-comment0.text=\r\n\ Will\ be\ dropped\ when\ an\ enemy\ dies\r\n\ \r\n\ @author\ Rohit\ Terry\ Kisto\ \r\n\ @version\ 2016/9/30\r\n
+comment0.text=\r\n\ This\ class\ determines\ the\ loot\ being\ dropped\ when\ an\ enemy\ dies\r\n\ \r\n\ @author\ Rohit\ Terry\ Kisto\ \r\n\ @version\ 13/10/2016\r\n
 comment1.params=world\ x\ y
 comment1.target=LootDrop(greenfoot.World,\ int,\ int)
 comment1.text=\r\n\ Constructs\ a\ new\ Loot\ Drop\ object\r\n\ @param\ World\ world\r\n\ @param\ int\ x\ position\r\n\ @param\ int\ y\ postiion\r\n

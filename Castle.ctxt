@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Castle
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ Castle\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ If\ an\ enemy\ touches\ an\ instance\ of\ this\ class,\ the\ enemy\ will\ be\ removed\ and\ the\ player\ will\ lose\ health\r\n\ depending\ on\ what\ enemy\ touches\ this\r\n\ \r\n\ @author\ Rohit\ Kisto\r\n\ @version\ 13/10/2016\r\n
 comment1.params=world\ x\ y
 comment1.target=Castle(greenfoot.World,\ int,\ int)
 comment2.params=

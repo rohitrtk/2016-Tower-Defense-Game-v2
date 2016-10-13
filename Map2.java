@@ -1,13 +1,13 @@
 import greenfoot.*; 
+import java.util.List;
 import java.util.ArrayList;
 import java.awt.Color;
 
 /**
- * This class is where the actual game is housed, everything gameplay related
- * is based here.
+ * This class displays map #2
  * 
  * @author Rohit Terry Kisto
- * @version 2016/9/30
+ * @version 13/10/2016
  */
 public class Map2 extends World
 {    
@@ -23,6 +23,9 @@ public class Map2 extends World
     private boolean spawn;                              // Can the enemies spawn?
     private int chance;
     private boolean stop;
+    
+    private boolean spawnEgg;
+    private EasterEgg map2eg;
     
     private static int money;
     private static int hp;                              // The players hp
@@ -73,6 +76,7 @@ public class Map2 extends World
         money = 100;
         timer = 0;
         spawn = true;
+        spawnEgg = true;
         
         guiHandler();                                   // Loads up the GUI on the right side of the screen
         
@@ -130,6 +134,16 @@ public class Map2 extends World
      */
     public void act()
     {    
+        if(EasterEggHandler.counter == 3)
+        {
+            EasterEggHandler.spawnSatan = true;
+        }
+        
+        if(EasterEggHandler.spawnSatan)
+        {
+            
+        }
+        
         if(round % 10 == 0)
         {
             if(!stop)
@@ -231,9 +245,8 @@ public class Map2 extends World
         
         if(spawn)
         {  
-            if(enemNumber < (2 * round) + 3 && round != 0)
+            if(enemNumber <= (2 * round) + 3 && round != 0)
             {
-               System.out.println(chance);
                double random = Math.ceil(Math.random() * chance);
                   
                if(random == 1)
@@ -250,6 +263,12 @@ public class Map2 extends World
                    enemies.add(enemNumber, new Rat4(this, waypoints.get(0).getX(), waypoints.get(0).getY()));
                }
                enemNumber++;
+               
+               if(spawnEgg && (int)(Math.ceil(Math.random() * 1000) + 1) == 5)
+               {
+                   map2eg = new EasterEgg(this, (int)(((Math.random() * 10) + 1) * 60), (int)((Math.random() * 10) + 1) * 60);
+                   spawnEgg = false;
+               }
             } else if(!enemies.isEmpty()){
                enemies.removeAll(enemies);
                playButton.setIsPlaying(false);
@@ -258,6 +277,7 @@ public class Map2 extends World
                round++;
                enemNumber = 0;
             }
+        
             spawn = false;
             timer = 0;
         } else {

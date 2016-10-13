@@ -6,7 +6,7 @@ import java.util.List;
  * This class will be extended upon for all enemies in the game.
  * 
  * @author Rohit Terry Kisto
- * @version 2016/9/30
+ * @version 13/10/2016
  */
 public class Enemy extends AbstEnemy
 {
@@ -17,7 +17,8 @@ public class Enemy extends AbstEnemy
     protected int moveSpeed;                                // Movement speed of this object
     protected int hp = 160;                                 // Default hit points of this object
     protected int damage = 1;                               // Damage dealt to player if this object reaches the end
-    protected final GreenfootSound death = new GreenfootSound("ratdead.wav");
+    protected final GreenfootSound death = new GreenfootSound("ratdead.wav");   // Death sound for all enemies
+    protected EnemyLabel thisLabel;                         // Enemylabel to display health to user
     
     protected static ArrayList<Waypoint> waypoints;         // Array of waypoints the enemy will access
     
@@ -45,6 +46,8 @@ public class Enemy extends AbstEnemy
         
         moveSpeed = 1;
         death.setVolume(100);
+        
+        thisLabel = new EnemyLabel(this.world, getX(), getY(), hp);
     }
     
     /**
@@ -59,6 +62,9 @@ public class Enemy extends AbstEnemy
         move(moveSpeed);
         x = getX();
         y = getY();
+        
+        thisLabel.setHp(hp);
+        thisLabel.setLocation(x, y);
         
         // For each actor this enemy is touching
         int i = 0;
@@ -89,6 +95,7 @@ public class Enemy extends AbstEnemy
         {
             destroy();
             Greenfoot.playSound("ratdead.wav");
+            thisLabel.destroy();
             //death.play();
         } else if (((isAtEdge()) && currentWaypoint < waypoints.size()) || currentWaypoint == waypoints.size() ||
             ( world instanceof Map3 && x >= 599)){
@@ -96,12 +103,14 @@ public class Enemy extends AbstEnemy
             if(world instanceof Map1) Map1.setHp(Map1.getHp() - damage);
             else if(world instanceof Map2) Map2.setHp(Map2.getHp() - damage);
             else if(world instanceof Map3) Map3.setHp(Map3.getHp() - damage);
+            thisLabel.destroy();
         } else if(isTouching(Castle.class))
         {
             if(world instanceof Map1) Map1.setHp(Map1.getHp() - damage);
             else if(world instanceof Map2) Map2.setHp(Map2.getHp() - damage);
             else if(world instanceof Map3) Map3.setHp(Map3.getHp() - damage);
             world.removeObject(this);
+            thisLabel.destroy();
         }
     }    
     
@@ -163,6 +172,7 @@ public class Enemy extends AbstEnemy
         return moveSpeed;
     }
     
+    //Misc function that aren'y really used 
     public void takeDamage()
     {
     }

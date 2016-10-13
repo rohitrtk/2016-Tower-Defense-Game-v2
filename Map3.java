@@ -3,8 +3,7 @@ import java.util.ArrayList;
 import java.awt.Color;
 
 /**
- * This class is where the actual game is housed, everything gameplay related
- * is based here.
+ * This class displays map #3
  * 
  * @author Rohit Terry Kisto
  * @version 2016/9/30
@@ -23,6 +22,9 @@ public class Map3 extends World
     private boolean spawn;                              // Can the enemies spawn?
     private int chance;
     private boolean stop;
+    
+    private boolean spawnEgg;
+    private EasterEgg map3eg;
     
     private static int money;
     private static int hp;                              // The players hp
@@ -102,6 +104,16 @@ public class Map3 extends World
      */
     public void act()
     {    
+        if(EasterEggHandler.counter == 3)
+        {
+            EasterEggHandler.spawnSatan = true;
+        }
+        
+        if(EasterEggHandler.spawnSatan)
+        {
+            
+        }
+        
         if(round % 10 == 0)
         {
             if(!stop)
@@ -222,6 +234,12 @@ public class Map3 extends World
                    enemies.add(enemNumber, new Rat4(this, waypoints.get(0).getX(), waypoints.get(0).getY()));
                }
                enemNumber++;
+               
+               if(spawnEgg && (int)(Math.ceil(Math.random() * 1000) + 1) == 5)
+               {
+                   map3eg = new EasterEgg(this, (int)(((Math.random() * 10) + 1) * 60), (int)((Math.random() * 10) + 1) * 60);
+                   spawnEgg = false;
+               }
             } else if(!enemies.isEmpty()){
                enemies.removeAll(enemies);
                playButton.setIsPlaying(false);

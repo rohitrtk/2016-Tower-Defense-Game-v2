@@ -9,9 +9,9 @@ import java.awt.Color;
  */
 public class Round extends GUI
 {
-    int round;                              // Current round player is on
-    GreenfootImage image;                   // A greenfoot image to display text
-    Color colour;                           // Colour object for the background of the string ^
+    private int round;                              // Current round player is on
+    private GreenfootImage image;                   // A greenfoot image to display text
+    private Color colour;                           // Colour object for the background of the string ^
     
     /**
      * Constructs a new Round label to display to the user

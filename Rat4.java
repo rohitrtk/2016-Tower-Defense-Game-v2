@@ -1,7 +1,7 @@
 import greenfoot.*;
 
 /**
- * The rank 2 of the rat army
+ * The rank 4 of the rat army
  * 
  * @author Rohit Terry Kisto 
  * @version 2016/9/21

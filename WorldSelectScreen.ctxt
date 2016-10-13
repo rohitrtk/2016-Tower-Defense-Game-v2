@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=WorldSelectScreen
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ WorldSelectScreen\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ This\ class\ displays\ a\ screen\ after\ the\ player\ clicks\ play\ on\ the\ title\ screen,\r\n\ will\ display\ 4\ buttons,\ the\ back\ button\ and\ 3\ map\ selecte\ buttons\r\n\ \r\n\ @author\ Rohit\ Kisto\r\n\ @version\ 13/10/2016\r\n
 comment1.params=
 comment1.target=WorldSelectScreen()
 comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ WorldSelectScreen.\r\n\ \r\n

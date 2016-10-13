@@ -9,9 +9,9 @@ import java.awt.Color;
  */
 public class Money extends GUI
 {
-    int money;                              // The amount of money the player has
-    GreenfootImage image;                   // A greenfoot image to display text
-    Color colour;                           // Colour object for the background
+    private int money;                              // The amount of money the player has
+    private GreenfootImage image;                   // A greenfoot image to display text
+    private Color colour;                           // Colour object for the background
     
     /**
      * Constructs a new money label for the user to view

@@ -1,16 +1,17 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class UpgradeButton here.
+ * This class will allow the player to click this object which willl then enable the
+ * player to upgrade their towers depending on how much money they have
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Rohit Kisto
+ * @version 13/10/2016
  */
 public class UpgradeButton extends GUI
 {
-    private final String notSelectedPath = "wrench.png";
-    private final String selectedPath = "wrench_selected.png";
-    public static boolean selected;
+    private final String notSelectedPath = "wrench.png";            // Not selected image
+    private final String selectedPath = "wrench_selected.png";      // Selected image
+    public static boolean selected;                                 // Selected boolean
     
     public UpgradeButton(World world, int x, int y)
     {
@@ -32,11 +33,14 @@ public class UpgradeButton extends GUI
         {
             if(Greenfoot.mouseClicked(this))
             {
+                // If this button is selected and clicked, set selected to false
                 if(selected) selected = false;
+                // Vice Versa
                 else if(!selected) selected = true;
             }
         }
         
+        // Set image depending on boolean
         if(selected) 
         {
             setImage(selectedPath);

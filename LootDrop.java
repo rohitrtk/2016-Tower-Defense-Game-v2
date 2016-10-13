@@ -1,10 +1,10 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Will be dropped when an enemy dies
+ * This class determines the loot being dropped when an enemy dies
  * 
  * @author Rohit Terry Kisto 
- * @version 2016/9/30
+ * @version 13/10/2016
  */
 public class LootDrop extends Bloodstain
 {

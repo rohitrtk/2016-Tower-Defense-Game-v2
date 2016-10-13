@@ -10,7 +10,7 @@ public class BlackTower extends Tower
 {
     public static final int cost = 1000;                   // The cost for the tower
     
-    private String[] imagePaths = 
+    private String[] imagePaths =                          // Array of strings which are the path to leveld up towers 
     {
         "blackhole_tower.png",
         "blackhole_tower_1.png",
