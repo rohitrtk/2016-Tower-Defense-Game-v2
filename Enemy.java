@@ -93,12 +93,21 @@ public class Enemy extends AbstEnemy
         // If hp is less than 1 or is at the end of the course, destroy this object
         if(hp < 1)
         {
+            if(this instanceof Satan) 
+            {
+                EasterEggHandler.killedSatan = true;
+            }
             destroy();
             Greenfoot.playSound("ratdead.wav");
             thisLabel.destroy();
             //death.play();
-        } else if (((isAtEdge()) && currentWaypoint < waypoints.size()) || currentWaypoint == waypoints.size() ||
+
+            } else if (((isAtEdge()) && currentWaypoint < waypoints.size()) || currentWaypoint == waypoints.size() ||
             ( world instanceof Map3 && x >= 599)){
+            if(this instanceof Satan)
+            {
+                System.exit(0);
+            }
             destroy();
             if(world instanceof Map1) Map1.setHp(Map1.getHp() - damage);
             else if(world instanceof Map2) Map2.setHp(Map2.getHp() - damage);
@@ -106,6 +115,10 @@ public class Enemy extends AbstEnemy
             thisLabel.destroy();
         } else if(isTouching(Castle.class))
         {
+            if(this instanceof Satan)
+            {
+                System.exit(0);
+            }
             if(world instanceof Map1) Map1.setHp(Map1.getHp() - damage);
             else if(world instanceof Map2) Map2.setHp(Map2.getHp() - damage);
             else if(world instanceof Map3) Map3.setHp(Map3.getHp() - damage);
@@ -121,6 +134,7 @@ public class Enemy extends AbstEnemy
      */
     public void destroy()
     {
+        //System.out.println("IM DEAD");
         world.addObject(new Bloodstain(this.world, getX(), getY()), getX(), getY());
         world.addObject(new LootDrop(this.world, getX(), getY()), getX(), getY());
         world.removeObject(this);                                                   // Destroy this object

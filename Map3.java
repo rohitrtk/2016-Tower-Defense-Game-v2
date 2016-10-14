@@ -22,6 +22,7 @@ public class Map3 extends World
     private boolean spawn;                              // Can the enemies spawn?
     private int chance;
     private boolean stop;
+    private boolean challenge;
     
     private boolean spawnEgg;
     private EasterEgg map3eg;
@@ -75,6 +76,7 @@ public class Map3 extends World
         money = 100;
         timer = 0;
         spawn = true;
+        challenge = false;
         
         guiHandler();                                   // Loads up the GUI on the right side of the screen
         
@@ -97,6 +99,7 @@ public class Map3 extends World
         }
         
         castle = new Castle(this, 600, 300);
+        if(EasterEggHandler.killedSatan) money = 1000000;
     }
     
     /**
@@ -111,7 +114,7 @@ public class Map3 extends World
         
         if(EasterEggHandler.spawnSatan)
         {
-            
+            enemies.add(new Satan(this, waypoints.get(0).getX(), waypoints.get(0).getY()));
         }
         
         if(round % 10 == 0)
@@ -121,6 +124,7 @@ public class Map3 extends World
                 chance++;
                 System.out.println("Upped");
                 stop = true;
+                challenge = true;
             }
         } else {
             stop = false;
@@ -215,6 +219,15 @@ public class Map3 extends World
         
         if(spawn)
         {  
+            if(challenge)
+            {
+                for(int i = 0;i < round / 10;i++)
+                {
+                    enemies.add(new Rat5(this, waypoints.get(0).getX(), waypoints.get(0).getY()));
+                }
+                challenge = false;
+            }
+            
             if(enemNumber < (2 * round) + 3 && round != 0)
             {
                System.out.println(chance);

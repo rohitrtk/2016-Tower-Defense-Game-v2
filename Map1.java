@@ -22,6 +22,7 @@ public class Map1 extends World
     private boolean spawn;                              // Can the enemies spawn?
     private int chance;
     private boolean stop;
+    private boolean challenge;
     
     private boolean spawnEgg;                           // Can the easter egg spawn?
     private EasterEgg map1eg;                           // Map 1's easter egg
@@ -44,8 +45,8 @@ public class Map1 extends World
     
     private GreenfootSound bgm;
     // IF YOU WANT TO TURN THE BGM ON OR OFF, CHANGE THE BOOLEAN BELOW!
-    //private boolean mute = true;
-    private boolean mute = false;
+    private boolean mute = true;
+    //private boolean mute = false;
     
     private boolean menu = true;
     
@@ -82,6 +83,7 @@ public class Map1 extends World
         timer = 0;
         spawn = true;
         spawnEgg = true;
+        challenge = false;
         
         guiHandler();                                   // Loads up the GUI on the right side of the screen
         
@@ -100,8 +102,6 @@ public class Map1 extends World
                 }
             }
         }
-        
-        castle = new Castle(this, 60, 540);
         
         waypoints = new ArrayList<Waypoint>();          // Waypoint array list
         for(int i = 0;i < 6;i++)
@@ -128,6 +128,9 @@ public class Map1 extends World
                     break;
             }
         }
+        
+        castle = new Castle(this, 60, 540);
+        if(EasterEggHandler.killedSatan) money = 1000000;
     }
     
     /**
@@ -142,7 +145,7 @@ public class Map1 extends World
         
         if(EasterEggHandler.spawnSatan)
         {
-            
+            enemies.add(new Satan(this, waypoints.get(0).getX(), waypoints.get(0).getY()));
         }
         
         if(round % 10 == 0)
@@ -152,9 +155,11 @@ public class Map1 extends World
                 chance++;
                 System.out.println("Upped");
                 stop = true;
+                challenge = true;
             }
         } else {
             stop = false;
+            challenge = false;
         }
                          
         if(win) Greenfoot.setWorld(new WinScreen());
@@ -255,7 +260,15 @@ public class Map1 extends World
         }
         
         if(spawn)
-        {  
+        {   if(challenge)
+            {
+                for(int i = 0;i < round / 10;i++)
+                {
+                    enemies.add(new Rat5(this, waypoints.get(0).getX(), waypoints.get(0).getY()));
+                }
+                challenge = false;
+            }
+            
             if(enemNumber < (2 * round) + 3 && round != 0)
             {
                //System.out.println(chance);
