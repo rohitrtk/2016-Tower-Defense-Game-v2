@@ -24,6 +24,8 @@ public class Map2 extends World
     private int chance;
     private boolean stop;
     private boolean challenge;
+    public static boolean restart;
+    public static boolean pause;
     
     private boolean spawnEgg;
     private EasterEgg map2eg;
@@ -131,12 +133,36 @@ public class Map2 extends World
         castle = new Castle(this, 420, 540);
         if(EasterEggHandler.killedSatan) money = 1000000;
     }
-    
+
     /**
      * This method is called when the Run button is pressed
      */
     public void act()
     {    
+        String myKey = Greenfoot.getKey();
+        
+        if(myKey != null)
+        {
+            if("escape".equals(myKey))
+            {
+                //System.out.println("PAUSED");
+                if(Map1.pause == false) 
+                {
+                    Map1.pause = true;
+                    return;
+                }
+                else if(Map1.pause == true)
+                {
+                    Map1.pause = false;
+                    return;
+                }
+            } else if ("r".equals(myKey))
+            {
+                System.out.println("was");
+                reset();
+            }
+        }
+        
         if(EasterEggHandler.counter == 3)
         {
             EasterEggHandler.spawnSatan = true;
@@ -302,5 +328,10 @@ public class Map2 extends World
                    spawn = true;
                }
         }
+    }
+    
+    private void reset()
+    {
+        Greenfoot.setWorld(new Map2());
     }
 }

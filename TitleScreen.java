@@ -21,6 +21,33 @@ public class TitleScreen extends World
      * Constructor for objects of class TitleScreen.
      * 
      */
+    public TitleScreen()
+    {    
+        super(840, 540, 1); 
+        
+        strings = new String[3];
+        buttons = new Button[3];
+        
+        for(int i = 0;i < buttons.length;i++)
+        {
+            if(i == 0) strings[i] = "PLAY";
+            else if(i == 1) strings[i] = "HELP";
+            else if(i == 2) strings[i] = "QUIT";
+            /*if(i == 0) 
+            {
+                buttons[i] = new Button(this, 275 + (i * 150), getHeight() / 2, strings[i],
+                   map1);
+            } else {
+                buttons[i] = new Button(this, 275 + (i * 150), getHeight() / 2, strings[i]);
+            }*/
+            buttons[i] = new Button(this, 275 + (i * 150), getHeight() / 2, strings[i]);
+        }      
+    }
+    
+    /**
+     * Constructor for objects of class TitleScreen.
+     * @param Map1 map1
+     */
     public TitleScreen(Map1 map1)
     {    
         super(840, 540, 1); 

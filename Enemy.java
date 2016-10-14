@@ -57,73 +57,77 @@ public class Enemy extends AbstEnemy
      */
      public void act() 
      {
-        touching = getIntersectingObjects(Actor.class);
-      
-        move(moveSpeed);
-        x = getX();
-        y = getY();
-        
-        thisLabel.setHp(hp);
-        thisLabel.setLocation(x, y);
-        
-        // For each actor this enemy is touching
-        int i = 0;
-        for(Actor a : touching)
-        {          
-            // If touching a waypoint, turn to next waypoint
-            
-            if(x == (waypoints.get(currentWaypoint+1).getX()) &&
-                y == waypoints.get(currentWaypoint+1).getY())
-            {
-                currentWaypoint++;
-                if(currentWaypoint >= waypoints.size() - 1) return;
-                turnTowards(waypoints.get(currentWaypoint+1).getX(), waypoints.get(currentWaypoint+1).getY());
-            }
-            
-            // If touching a bullet, subtract hp by bullet damage and destroy the bullet
-            if(a instanceof Bullet) {
-                Bullet bullet = (Bullet)touching.get(i);              
-                
-                hp -= bullet.getBulletDamage();
-                bullet.destroy();
-            }
-            i++;
-        }
-        
-        // If hp is less than 1 or is at the end of the course, destroy this object
-        if(hp < 1)
+        if(!Map1.pause || !Map2.pause || !Map3.pause)
         {
-            if(this instanceof Satan) 
-            {
-                EasterEggHandler.killedSatan = true;
-            }
-            destroy();
-            Greenfoot.playSound("ratdead.wav");
-            thisLabel.destroy();
-            //death.play();
 
-            } else if (((isAtEdge()) && currentWaypoint < waypoints.size()) || currentWaypoint == waypoints.size() ||
-            ( world instanceof Map3 && x >= 599)){
-            if(this instanceof Satan)
-            {
-                System.exit(0);
+            touching = getIntersectingObjects(Actor.class);
+      
+            move(moveSpeed);
+            x = getX();
+            y = getY();
+        
+            thisLabel.setHp(hp);
+            thisLabel.setLocation(x, y);
+        
+            // For each actor this enemy is touching
+            int i = 0;
+            for(Actor a : touching)
+            {          
+                // If touching a waypoint, turn to next waypoint
+            
+                if(x == (waypoints.get(currentWaypoint+1).getX()) &&
+                    y == waypoints.get(currentWaypoint+1).getY())
+                    {
+                        currentWaypoint++;
+                        if(currentWaypoint >= waypoints.size() - 1) return;
+                        turnTowards(waypoints.get(currentWaypoint+1).getX(), waypoints.get(currentWaypoint+1).getY());
+                    }
+            
+                    // If touching a bullet, subtract hp by bullet damage and destroy the bullet
+                    if(a instanceof Bullet) {
+                        Bullet bullet = (Bullet)touching.get(i);              
+                
+                        hp -= bullet.getBulletDamage();
+                        bullet.destroy();
+                    }
+                    i++;
             }
-            destroy();
-            if(world instanceof Map1) Map1.setHp(Map1.getHp() - damage);
-            else if(world instanceof Map2) Map2.setHp(Map2.getHp() - damage);
-            else if(world instanceof Map3) Map3.setHp(Map3.getHp() - damage);
-            thisLabel.destroy();
-        } else if(isTouching(Castle.class))
-        {
-            if(this instanceof Satan)
+        
+            // If hp is less than 1 or is at the end of the course, destroy this object
+            if(hp < 1)
             {
-                System.exit(0);
+                if(this instanceof Satan) 
+                {
+                    EasterEggHandler.killedSatan = true;
+                }
+                destroy();
+                Greenfoot.playSound("ratdead.wav");
+                thisLabel.destroy();
+                //death.play();
+
+                } else if (((isAtEdge()) && currentWaypoint < waypoints.size()) || currentWaypoint == waypoints.size() ||
+                ( world instanceof Map3 && x >= 599)){
+                 if(this instanceof Satan)
+                 {
+                     System.exit(0);
+                    }
+                    destroy();
+                 if(world instanceof Map1) Map1.setHp(Map1.getHp() - damage);
+                 else if(world instanceof Map2) Map2.setHp(Map2.getHp() - damage);
+                 else if(world instanceof Map3) Map3.setHp(Map3.getHp() - damage);
+                 thisLabel.destroy();
+            } else if(isTouching(Castle.class))
+            {
+                if(this instanceof Satan)
+                {
+                    System.exit(0);
+                }
+                if(world instanceof Map1) Map1.setHp(Map1.getHp() - damage);
+                else if(world instanceof Map2) Map2.setHp(Map2.getHp() - damage);
+                else if(world instanceof Map3) Map3.setHp(Map3.getHp() - damage);
+                world.removeObject(this);
+                thisLabel.destroy();
             }
-            if(world instanceof Map1) Map1.setHp(Map1.getHp() - damage);
-            else if(world instanceof Map2) Map2.setHp(Map2.getHp() - damage);
-            else if(world instanceof Map3) Map3.setHp(Map3.getHp() - damage);
-            world.removeObject(this);
-            thisLabel.destroy();
         }
     }    
     

@@ -23,6 +23,8 @@ public class Map1 extends World
     private int chance;
     private boolean stop;
     private boolean challenge;
+    public static boolean restart;
+    public static boolean pause;
     
     private boolean spawnEgg;                           // Can the easter egg spawn?
     private EasterEgg map1eg;                           // Map 1's easter egg
@@ -71,6 +73,87 @@ public class Map1 extends World
         }
 
         // Init variables
+        restart = false;
+        pause = false;
+        chance = 1;
+        stop = false;
+        enemies = new ArrayList<Enemy>();
+        enemNumber = 0;
+        win = false;
+        loss = false;
+        round = 0;
+        hp = 100;
+        money = 100;
+        timer = 0;
+        spawn = true;
+        spawnEgg = true;
+        challenge = false;
+        
+        guiHandler();                                   // Loads up the GUI on the right side of the screen
+        
+        tiles = new Tile[10][14];                       // Sets width and height of tile map
+        for(int i = 0;i < 10;i++)                       // Draws either a wall or dirt tile depending on its index number
+        {
+            for(int j = 0;j < tiles[i].length;j++)
+            {
+                if(((i == 0 || i == 1 || i == 2) && (j == 1)) || ((i == 2) && (j > 1 && j < 11)) ||
+                (i == 3 || i == 4 || i == 5 || i == 5) && (j == 10) || (i == 6) && (j > 1 && j < 11) ||
+                (i == 6 || i == 7 || i == 8 || i == 9) && (j == 1))
+                {
+                    tiles[i][j] = new Dirt(this, j * 60, i * 60);
+                } else if(j < 11) {
+                    tiles[i][j] = new Wall(this, j * 60, i * 60);
+                }
+            }
+        }
+        
+        waypoints = new ArrayList<Waypoint>();          // Waypoint array list
+        for(int i = 0;i < 6;i++)
+        {
+            switch(i)
+            {
+                case 0:
+                    waypoints.add(i, new Waypoint(this, 1 * 60, -2 * 60));
+                    break;
+                case 1:
+                    waypoints.add(i, new Waypoint(this, 1 * 60, 2 * 60));
+                    break;
+                case 2:
+                    waypoints.add(i, new Waypoint(this, 10 * 60, 2 * 60));
+                    break;
+                case 3:
+                    waypoints.add(i, new Waypoint(this, 10 * 60, 6 * 60));
+                    break;
+                case 4:
+                    waypoints.add(i, new Waypoint(this, 1 * 60, 6 * 60));
+                    break;    
+                case 5:
+                    waypoints.add(i, new Waypoint(this, 1 * 60, 9 * 60));
+                    break;
+            }
+        }
+        
+        castle = new Castle(this, 60, 540);
+        if(EasterEggHandler.killedSatan) money = 1000000;
+    }
+    
+    /**
+     * This method constructs Map1 and initializes the world, the tiles on the world
+     * the arraylist of waypoints and any enemies/towers
+     */
+    public Map1(boolean pass)
+    {    
+        // Create a new world with 780, 540 cells with a cell size of 1x1 pixels.
+        // Cell width is 60 pixels each
+        super(840, 540, 1); 
+        
+        // Background music mute option
+        bgm = new GreenfootSound("bgm.mp3");
+        if(!mute) bgm.playLoop();
+
+        // Init variables
+        restart = false;
+        pause = false;
         chance = 1;
         stop = false;
         enemies = new ArrayList<Enemy>();
@@ -138,41 +221,69 @@ public class Map1 extends World
      */
     public void act()
     {    
-        if(EasterEggHandler.counter == 3)
-        {
-            EasterEggHandler.spawnSatan = true;
-        }
+        String myKey = Greenfoot.getKey();
         
-        if(EasterEggHandler.spawnSatan)
+        if(myKey != null)
         {
-            enemies.add(new Satan(this, waypoints.get(0).getX(), waypoints.get(0).getY()));
-        }
-        
-        if(round % 10 == 0)
-        {
-            if(!stop)
+            if("escape".equals(myKey))
             {
-                chance++;
-                System.out.println("Upped");
-                stop = true;
-                challenge = true;
+                //System.out.println("PAUSED");
+                if(Map1.pause == false) 
+                {
+                    Map1.pause = true;
+                    return;
+                }
+                else if(Map1.pause == true)
+                {
+                    Map1.pause = false;
+                    return;
+                }
+            } else if ("r".equals(myKey))
+            {
+                System.out.println("was");
+                reset();
             }
-        } else {
-            stop = false;
-            challenge = false;
         }
-                         
-        if(win) Greenfoot.setWorld(new WinScreen());
-        
-        if(hp < 1) 
+            
+        if(!Map1.pause)
         {
-            loss = true;
-            Greenfoot.setWorld(new LossScreen());
+            //System.out.println(Map1.pause);
+            if(EasterEggHandler.counter == 3)
+            {
+                EasterEggHandler.spawnSatan = true;
+            }
+        
+            if(EasterEggHandler.spawnSatan)
+            {
+                enemies.add(new Satan(this, waypoints.get(0).getX(), waypoints.get(0).getY()));
+            }
+        
+            if(round % 10 == 0)
+            {
+                if(!stop)
+                {
+                    chance++;
+                    System.out.println("Upped");
+                    stop = true;
+                    challenge = true;
+                }
+            } else {
+                stop = false;
+                challenge = false;
+            }
+                         
+            if(win) Greenfoot.setWorld(new WinScreen());
+        
+            if(hp < 1) 
+            {
+                loss = true;
+                Greenfoot.setWorld(new LossScreen());
+            }
+            spawnEnemy();
+            roundGUI.setRound(round);
+            hpGUI.setHp(hp);
+            moneyGUI.setMoney(money);
         }
-        spawnEnemy();
-        roundGUI.setRound(round);
-        hpGUI.setHp(hp);
-        moneyGUI.setMoney(money);
     }
     
     /**
@@ -251,22 +362,25 @@ public class Map1 extends World
      */
     private void spawnEnemy()
     {
-        if (enemies == null) return; 
-        
-        //Victory condition
-        if(round > 50)
+        if(!pause)
         {
-            win = true;
-        }
+            if (enemies == null) return; 
         
-        if(spawn)
-        {   if(challenge)
+            //Victory condition
+            if(round > 50)
             {
-                for(int i = 0;i < round / 10;i++)
+                win = true;
+            }
+        
+            if(spawn)
+            {   
+                if(challenge)
                 {
-                    enemies.add(new Rat5(this, waypoints.get(0).getX(), waypoints.get(0).getY()));
-                }
-                challenge = false;
+                    for(int i = 0;i < round / 10;i++)
+                    {
+                        enemies.add(new Rat5(this, waypoints.get(0).getX(), waypoints.get(0).getY()));
+                    }
+                    challenge = false;
             }
             
             if(enemNumber < (2 * round) + 3 && round != 0)
@@ -306,13 +420,21 @@ public class Map1 extends World
             }
             spawn = false;
             timer = 0;
-        } else {
+            } else {
                timer++;
                //if(round == 0) return;
                if(timer % 60 == 0)
                {  
                    spawn = true;
                }
+            }
+        } else {
+        
         }
+    }
+    
+    private void reset()
+    {
+        Greenfoot.setWorld(new Map1(true));
     }
 }

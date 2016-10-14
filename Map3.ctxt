@@ -25,4 +25,6 @@ comment7.text=\r\n\ This\ method\ handles\ all\ of\ the\ gui\ for\ the\ map\r\n\
 comment8.params=
 comment8.target=void\ spawnEnemy()
 comment8.text=\r\n\ This\ method\ is\ responsible\ for\ spawning\ enenmies\ in\ the\ world\r\n\ @return\ void\r\n
-numComments=9
+comment9.params=
+comment9.target=void\ reset()
+numComments=10

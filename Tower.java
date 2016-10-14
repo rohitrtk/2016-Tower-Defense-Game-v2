@@ -99,9 +99,10 @@ public class Tower extends Actor
      */
     public void act() 
     {
-        //HERE
         
-        if(level == 1) setImage(images[0]);
+        if(!Map1.pause || !Map2.pause || !Map3.pause)
+        {
+            if(level == 1) setImage(images[0]);
         else if(level == 2) setImage(images[1]);
         else if(level == 3) setImage(images[2]);
         else if(level == 4) setImage(images[3]);
@@ -258,40 +259,41 @@ public class Tower extends Actor
                                 Map3.setMoney(Map3.getMoney() - PsychoTower.cost * getLevel());
                             }
                         } else {
-                            if(Map3.getMoney() >= Tower.cost * getLevel())
-                            {
-                                level++;
-                                System.out.println("level up!");
-                                Map3.setMoney(Map3.getMoney() - Tower.cost * getLevel());
-                            }
-                        }
+                                if(Map3.getMoney() >= Tower.cost * getLevel())
+                                 {
+                                   level++;
+                                   System.out.println("level up!");
+                                   Map3.setMoney(Map3.getMoney() - Tower.cost * getLevel());
+                               }
+                           }
+                       }
                     }
                 }
             }
-        }
         
-        if(isPlaced)
-        {
-            // Shooting algorithm
-            if(isAbleToShoot)                                                       // If this tower can shoot...
+            if(isPlaced)
             {
-                findTarget();
-            } 
-            else
-            {
-                timer++;                                                            // Add one to cooldown time
-                if(timer % cooldownTime == 0)                                       // If cooldown time is done...
+                // Shooting algorithm
+                if(isAbleToShoot)                                                       // If this tower can shoot...
                 {
-                    isAbleToShoot = true;                                           // Tower can shoot again
-                    timer = 0;                                                      // Reset timer
-                    //System.out.println(timer);
+                    findTarget();
+                 } 
+                 else
+                 {
+                     timer++;                                                            // Add one to cooldown time
+                    if(timer % cooldownTime == 0)                                       // If cooldown time is done...
+                    {
+                        isAbleToShoot = true;                                           // Tower can shoot again
+                        timer = 0;                                                      // Reset timer
+                        //System.out.println(timer);
+                    }
                 }
             }
-        }
         
-        if(isDestroyed) 
-        {
-            destroy();
+            if(isDestroyed) 
+            {
+                destroy();
+            }
         }
     }   
     

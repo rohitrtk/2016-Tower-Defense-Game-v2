@@ -39,18 +39,20 @@ public class PlayButton extends GUI
      */
     public void act() 
     {
-        MouseInfo mouse = Greenfoot.getMouseInfo();
-        super.act();
-        
-        // If the mouse is clicked and within the button bounds
-        if(mouse != null && Greenfoot.mousePressed(this))
+        if(!Map1.pause || !Map2.pause || !Map3.pause)
         {
-            if((mouse.getX() > (x - WIDTH/2)) && mouse.getX() < (x + WIDTH/2) &&
-                (mouse.getY() > (y - HEIGHT/2)) && (mouse.getY() < (y + HEIGHT/2)))
+            MouseInfo mouse = Greenfoot.getMouseInfo();
+            super.act();
+            // If the mouse is clicked and within the button bounds
+            if(mouse != null && Greenfoot.mousePressed(this))
             {
-                if(isPlaying) return;       // If isPlaying, do nothing
-                isPlaying = true;
-                setImage(imagePathDis);
+                if((mouse.getX() > (x - WIDTH/2)) && mouse.getX() < (x + WIDTH/2) &&
+                (mouse.getY() > (y - HEIGHT/2)) && (mouse.getY() < (y + HEIGHT/2)))
+                {
+                    if(isPlaying) return;       // If isPlaying, do nothing
+                    isPlaying = true;
+                    setImage(imagePathDis);
+                }
             }
         }
     } 

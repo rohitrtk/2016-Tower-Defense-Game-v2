@@ -27,25 +27,28 @@ public class UpgradeButton extends GUI
      */
     public void act() 
     {
-        MouseInfo mouse = Greenfoot.getMouseInfo();
+        if(!Map1.pause || !Map2.pause || !Map3.pause)
+        {
+            MouseInfo mouse = Greenfoot.getMouseInfo();
 
-        if(mouse != null)
-        {
-            if(Greenfoot.mouseClicked(this))
+            if(mouse != null)
             {
-                // If this button is selected and clicked, set selected to false
-                if(selected) selected = false;
-                // Vice Versa
-                else if(!selected) selected = true;
+                if(Greenfoot.mouseClicked(this))
+                {
+                    // If this button is selected and clicked, set selected to false
+                    if(selected) selected = false;
+                    // Vice Versa
+                    else if(!selected) selected = true;
+                }
             }
-        }
         
-        // Set image depending on boolean
-        if(selected) 
-        {
-            setImage(selectedPath);
-        } else {
-            setImage(notSelectedPath);
+            // Set image depending on boolean
+            if(selected) 
+            {
+                setImage(selectedPath);
+            } else {
+                setImage(notSelectedPath);
+            }
         }
     } 
 }

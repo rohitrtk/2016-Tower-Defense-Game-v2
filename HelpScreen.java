@@ -9,7 +9,9 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class HelpScreen extends World
 {
-
+    
+    private Button back;
+    
     /**
      * Constructor for objects of class HelpScreen.
      * 
@@ -17,5 +19,9 @@ public class HelpScreen extends World
     public HelpScreen()
     {    
         super(840, 540, 1); 
+        
+        back = new Button(this, 100, 100, "BACK");
     }
+    
+    
 }

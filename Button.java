@@ -73,6 +73,7 @@ public class Button extends GUI
                 else if(string.equals("MAP1")) Greenfoot.setWorld(TitleScreen.map1);
                 else if(string.equals("MAP2")) Greenfoot.setWorld(new Map2());
                 else if(string.equals("MAP3")) Greenfoot.setWorld(new Map3());
+                else if(string.equals("BACK")) Greenfoot.setWorld(new TitleScreen());
             }
         }
     }
