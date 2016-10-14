@@ -15,12 +15,13 @@
 **List of things required for 4+**
   - [x] Multiple maps
   - [x] Health bars
-  - [ ] Easter eggs
+  - [x] Easter eggs
   - [x] A coherent game theme
-  - [ ] Challenge levels
+  - [x] Challenge levels
   - [x] Start at various levels
   - [ ] ~~Save progress~~
-  - [ ] Pause/restart
+  - [ ] Pause
+  - [x] Restart
   - [x] Home class
   - [x] Upgrades of towers
   - [x] Raze towers
