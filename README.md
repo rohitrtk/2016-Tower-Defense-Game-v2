@@ -13,18 +13,29 @@
   - [x] Win/Lose state
   
 **List of things required for 4+**
-  - [x] Multiple maps
+  - [x] Multiple maps 
+  (Select Map 1, 2 or 3)
   - [x] Health bars
+  (Yellow text on top of enemy sprite)
   - [x] Easter eggs
+  (1/10000 chance of an egg spawning for each enemy spawned, if 3 eggs are collected, boss monster spawns,
+  If player beats it, player is granted 1mil gold on each map, if player loses, game is closed)
   - [x] A coherent game theme
+  (Rats)
   - [x] Challenge levels
+  (For each 10 rounds, challenging monsters spawn)
   - [x] Start at various levels
+  (Start at Map 1, 2 or 3)
   - [ ] ~~Save progress~~
   - [ ] Pause
   - [x] Restart
+  (Press 'r' key)
   - [x] Home class
+  (Spawns at the end of the path)
   - [x] Upgrades of towers
+  (Click the wrench icon then click on a tower)
   - [x] Raze towers
+  (Right click on the tower)
   - [ ] ~~Use of animated gifs~~
   - [x] Javadocs documentation completed
   - [ ] ~~Magical mystery options of impressive quality~~
