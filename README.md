@@ -27,7 +27,8 @@
   - [x] Start at various levels
   (Start at Map 1, 2 or 3)
   - [ ] ~~Save progress~~
-  - [ ] Pause
+  - [x] Pause
+  (Press 'p' key)
   - [x] Restart
   (Press 'r' key)
   - [x] Home class
