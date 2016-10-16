@@ -70,11 +70,24 @@ public class Button extends GUI
                 if(string.equals("PLAY")) Greenfoot.setWorld(new WorldSelectScreen());
                 else if(string.equals("HELP")) Greenfoot.setWorld(new HelpScreen());
                 else if(string.equals("QUIT")) System.exit(0);
-                else if(string.equals("MAP1")) Greenfoot.setWorld(TitleScreen.map1);
+                else if(string.equals("MAP1")) 
+                {
+                    if(TitleScreen.firstLaunch) Greenfoot.setWorld(TitleScreen.map1);
+                    else Greenfoot.setWorld(new Map1());
+                }
                 else if(string.equals("MAP2")) Greenfoot.setWorld(new Map2());
                 else if(string.equals("MAP3")) Greenfoot.setWorld(new Map3());
                 else if(string.equals("BACK")) Greenfoot.setWorld(new TitleScreen());
             }
         }
+    }
+    
+    /**
+     * Removes this object from the world
+     * @return void
+     */
+    public void destroy()
+    {
+        world.removeObject(this);
     }
 }

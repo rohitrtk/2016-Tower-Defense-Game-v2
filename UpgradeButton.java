@@ -13,6 +13,8 @@ public class UpgradeButton extends GUI
     private final String selectedPath = "wrench_selected.png";      // Selected image
     public static boolean selected;                                 // Selected boolean
     
+    private boolean pause;
+    
     public UpgradeButton(World world, int x, int y)
     {
         super(world, x, y);
@@ -27,7 +29,11 @@ public class UpgradeButton extends GUI
      */
     public void act() 
     {
-        if(!Map1.pause || !Map2.pause || !Map3.pause)
+        if(world instanceof Map1) this.pause = Map1.pause;
+        else if(world instanceof Map2) this.pause = Map2.pause;
+        else if(world instanceof Map3) this.pause = Map3.pause;
+        
+        if(!pause)
         {
             MouseInfo mouse = Greenfoot.getMouseInfo();
 

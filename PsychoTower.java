@@ -8,7 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class PsychoTower extends Tower
 {
-    public static final int cost = 4000;                   // The cost for the tower
+    public static final int cost = 10000;                   // The cost for the tower
     
     private String[] imagePaths =                          // Array of strings which are the path to leveld up towers 
     {

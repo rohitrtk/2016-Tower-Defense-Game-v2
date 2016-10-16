@@ -17,6 +17,7 @@ public class Rat2 extends Enemy
         currentWaypoint = 0;
         moveSpeed = 1;
         hp = 250;
+        damage = 5;
     }
     
     /**

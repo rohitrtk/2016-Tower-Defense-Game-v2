@@ -16,6 +16,7 @@ public class TitleScreen extends World
     Button buttons[];
     
     public static Map1 map1;
+    public static boolean firstLaunch = true;
     
     /**
      * Constructor for objects of class TitleScreen.

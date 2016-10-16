@@ -15,8 +15,9 @@ public class Rat5 extends Enemy
     {
         super(world, x, y);
         currentWaypoint = 0;
-        moveSpeed = 4;
-        hp = 2000;
+        moveSpeed = 1;
+        hp = 5000;
+        damage = 50;
     }
     
     /**

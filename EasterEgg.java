@@ -1,10 +1,12 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class EasterEgg here.
+ * This class handles the easter egg in this game, if the mouse is pressed
+ * on an object of this class, add to the counter, if the counter reaches 3,
+ * spawn the boss
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Rohit Kisto
+ * @version 14/10/2016
  */
 public class EasterEgg extends Actor
 {

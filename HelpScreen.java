@@ -21,7 +21,5 @@ public class HelpScreen extends World
         super(840, 540, 1); 
         
         back = new Button(this, 100, 100, "BACK");
-    }
-    
-    
+    }    
 }

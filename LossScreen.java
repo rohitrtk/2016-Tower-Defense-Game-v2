@@ -8,7 +8,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class LossScreen extends World
 {
-
+    private Button back;
+    
     /**
      * Constructor for objects of class LossScreen.
      * 
@@ -16,5 +17,7 @@ public class LossScreen extends World
     public LossScreen()
     {    
         super(840, 540, 1); 
+        
+        back = new Button(this, 100, 100, "BACK");
     }
 }

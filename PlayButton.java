@@ -13,6 +13,8 @@ public class PlayButton extends GUI
     
     private boolean isPlaying;                          // Are enemies spawning right now?
     
+    private boolean pause;
+    
     private String imagePathDis = "playbutton_disabled.png";    // The current image to display
     /**
      * Constructs a new PlayButton where the user can press it to play the game
@@ -39,7 +41,11 @@ public class PlayButton extends GUI
      */
     public void act() 
     {
-        if(!Map1.pause || !Map2.pause || !Map3.pause)
+        if(world instanceof Map1) this.pause = Map1.pause;
+        else if(world instanceof Map2) this.pause = Map2.pause;
+        else if(world instanceof Map3) this.pause = Map3.pause;
+        
+        if(!pause)
         {
             MouseInfo mouse = Greenfoot.getMouseInfo();
             super.act();

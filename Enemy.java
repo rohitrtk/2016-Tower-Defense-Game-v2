@@ -20,6 +20,8 @@ public class Enemy extends AbstEnemy
     protected final GreenfootSound death = new GreenfootSound("ratdead.wav");   // Death sound for all enemies
     protected EnemyLabel thisLabel;                         // Enemylabel to display health to user
     
+    protected boolean pause;
+    
     protected static ArrayList<Waypoint> waypoints;         // Array of waypoints the enemy will access
     
     protected List<Actor> touching;                         // List of objects this enemy is touching                          
@@ -57,9 +59,13 @@ public class Enemy extends AbstEnemy
      */
      public void act() 
      {
-        if(!Map1.pause || !Map2.pause || !Map3.pause)
+        if(world instanceof Map1) this.pause = Map1.pause;
+        else if(world instanceof Map2) this.pause = Map2.pause;
+        else if(world instanceof Map3) this.pause = Map3.pause;
+        
+        if(!pause)
         {
-
+            //System.out.println(pause);
             touching = getIntersectingObjects(Actor.class);
       
             move(moveSpeed);
@@ -96,6 +102,7 @@ public class Enemy extends AbstEnemy
             // If hp is less than 1 or is at the end of the course, destroy this object
             if(hp < 1)
             {
+                // If satan has been killed
                 if(this instanceof Satan) 
                 {
                     EasterEggHandler.killedSatan = true;
@@ -106,11 +113,12 @@ public class Enemy extends AbstEnemy
                 //death.play();
 
                 } else if (((isAtEdge()) && currentWaypoint < waypoints.size()) || currentWaypoint == waypoints.size() ||
-                ( world instanceof Map3 && x >= 599)){
+                    ( world instanceof Map3 && x >= 599)){
+                 // Close the game if satan has reached the end
                  if(this instanceof Satan)
                  {
                      System.exit(0);
-                    }
+                 }
                     destroy();
                  if(world instanceof Map1) Map1.setHp(Map1.getHp() - damage);
                  else if(world instanceof Map2) Map2.setHp(Map2.getHp() - damage);
@@ -190,21 +198,38 @@ public class Enemy extends AbstEnemy
         return moveSpeed;
     }
     
-    //Misc function that aren'y really used 
+    //Misc functions that aren't used 
+    /**
+     * Called if the enemy takes damage
+     * @return void
+     */
     public void takeDamage()
     {
     }
     
+    /**
+     * Checks if enemy has been hit
+     * @return boolean hit
+     */
     public boolean checkHit()
     {
         return false;
     }
     
+    /**
+     * Sets the waypoint the enemy is searching for
+     * @param int i
+     * @return void
+     */
     protected void setWaypoint(int i)
     {
         this.currentWaypoint = currentWaypoint;
     }
     
+    /**
+     * Gets the currentwaypoint the enemy is on
+     * @return int currentWaypoint
+     */
     protected int getWaypoint()
     {
         return currentWaypoint;

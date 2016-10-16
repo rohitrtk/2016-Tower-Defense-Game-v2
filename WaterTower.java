@@ -8,7 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class WaterTower extends Tower
 {
-    public static final int cost = 300;                   // The cost for the tower
+    public static final int cost = 800;                   // The cost for the tower
     
     private String[] imagePaths =                         // Array of strings which are the path to leveld up towers            
     {

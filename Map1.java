@@ -39,7 +39,9 @@ public class Map1 extends World
     private HP hpGUI;
     private Money moneyGUI;
     private UpgradeButton upgradeButton;
-
+    
+    private Button backButton;
+    
     private boolean win;
     private boolean loss;
     
@@ -47,8 +49,8 @@ public class Map1 extends World
     
     private GreenfootSound bgm;
     // IF YOU WANT TO TURN THE BGM ON OR OFF, CHANGE THE BOOLEAN BELOW!
-    private boolean mute = true;
-    //private boolean mute = false;
+    //private boolean mute = true;
+    private boolean mute = false;
     
     private boolean menu = true;
     
@@ -68,6 +70,7 @@ public class Map1 extends World
         
         if(menu)
         {
+            TitleScreen.firstLaunch = false;
             menu = false;
             Greenfoot.setWorld(new TitleScreen(this));
         }
@@ -167,6 +170,7 @@ public class Map1 extends World
         spawn = true;
         spawnEgg = true;
         challenge = false;
+        pause = false;
         
         guiHandler();                                   // Loads up the GUI on the right side of the screen
         
@@ -225,28 +229,22 @@ public class Map1 extends World
         
         if(myKey != null)
         {
-            if("escape".equals(myKey))
+            if("p".equals(myKey))
             {
                 //System.out.println("PAUSED");
-                if(Map1.pause == false) 
-                {
-                    Map1.pause = true;
-                    return;
-                }
-                else if(Map1.pause == true)
-                {
-                    Map1.pause = false;
-                    return;
-                }
+                if(!pause)  pause = true;
+                else pause = false;
             } else if ("r".equals(myKey))
             {
-                System.out.println("was");
                 reset();
+            } else if("escape".equals(myKey))
+            {
+                Greenfoot.setWorld(new TitleScreen());
             }
         }
             
-        if(!Map1.pause)
-        {
+        if(pause) return;
+            
             //System.out.println(Map1.pause);
             if(EasterEggHandler.counter == 3)
             {
@@ -263,7 +261,7 @@ public class Map1 extends World
                 if(!stop)
                 {
                     chance++;
-                    System.out.println("Upped");
+                    //System.out.println("Upped");
                     stop = true;
                     challenge = true;
                 }
@@ -283,7 +281,7 @@ public class Map1 extends World
             roundGUI.setRound(round);
             hpGUI.setHp(hp);
             moneyGUI.setMoney(money);
-        }
+        
     }
     
     /**
@@ -357,11 +355,12 @@ public class Map1 extends World
     }
 
     /**
-     * This method is responsible for spawning enenmies in the world
+     * This method is responsible for spawning enenmies into the world
      * @return void
      */
     private void spawnEnemy()
     {
+        //If the map isn't paused
         if(!pause)
         {
             if (enemies == null) return; 
@@ -374,6 +373,7 @@ public class Map1 extends World
         
             if(spawn)
             {   
+                // Challenege every 10 levels
                 if(challenge)
                 {
                     for(int i = 0;i < round / 10;i++)
@@ -388,20 +388,26 @@ public class Map1 extends World
                //System.out.println(chance);
                double random = Math.ceil(Math.random() * chance);
                   
-               if(random == 1)
+               // Weird bug that causes an index out of bounds exception
+               try 
                {
-                   enemies.add(enemNumber, new Rat1(this, waypoints.get(0).getX(), waypoints.get(0).getY()));
-               } else if(random == 2)
+                   if(random == 1)
+                   {
+                       enemies.add(enemNumber, new Rat1(this, waypoints.get(0).getX(), waypoints.get(0).getY()));
+                    } else if(random == 2)
+                    {
+                        enemies.add(enemNumber, new Rat2(this, waypoints.get(0).getX(), waypoints.get(0).getY()));
+                    } else if(random == 3)
+                    {
+                        enemies.add(enemNumber, new Rat3(this, waypoints.get(0).getX(), waypoints.get(0).getY()));
+                    } else if(random == 4)
+                    {
+                        enemies.add(enemNumber, new Rat4(this, waypoints.get(0).getX(), waypoints.get(0).getY()));
+                    }
+                    enemNumber++;
+               } catch (IndexOutOfBoundsException iob)
                {
-                   enemies.add(enemNumber, new Rat2(this, waypoints.get(0).getX(), waypoints.get(0).getY()));
-               } else if(random == 3)
-               {
-                   enemies.add(enemNumber, new Rat3(this, waypoints.get(0).getX(), waypoints.get(0).getY()));
-               } else if(random == 4)
-               {
-                   enemies.add(enemNumber, new Rat4(this, waypoints.get(0).getX(), waypoints.get(0).getY()));
                }
-               enemNumber++;
                
                // If we can spawn the egg and the random number between 1 and 1000 is 5
                // Spawn the egg then make sure it cant spawn again
@@ -428,11 +434,13 @@ public class Map1 extends World
                    spawn = true;
                }
             }
-        } else {
-        
         }
     }
     
+    /**
+     * Resets the map to its starting state
+     * @return void
+     */
     private void reset()
     {
         Greenfoot.setWorld(new Map1(true));

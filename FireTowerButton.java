@@ -18,7 +18,7 @@ public class FireTowerButton extends TowerButton
     {
         super(world, x, y);
         
-        new Money(this.world, this.x + 60, this.y, FireTower.cost);
+        new Money(this.world, this.x + 68, this.y, FireTower.cost);
     }
     
     /**

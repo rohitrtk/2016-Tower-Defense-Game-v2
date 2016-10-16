@@ -8,7 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class WinScreen extends World
 {
-
+    private Button back;
     /**
      * Constructor for objects of class WinScreen.
      * 
@@ -16,5 +16,7 @@ public class WinScreen extends World
     public WinScreen()
     {    
         super(840, 540, 1); 
+        
+        back = new Button(this, 100, 100, "BACK");
     }
 }

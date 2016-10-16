@@ -40,7 +40,8 @@ public class Map2 extends World
     private HP hpGUI;
     private Money moneyGUI;
     private UpgradeButton upgradeButton;
-
+    private Button backButton;
+    
     private boolean win;
     private boolean loss;
     
@@ -81,6 +82,7 @@ public class Map2 extends World
         spawn = true;
         spawnEgg = true;
         challenge = false;
+        pause = false;
         
         guiHandler();                                   // Loads up the GUI on the right side of the screen
         
@@ -143,25 +145,21 @@ public class Map2 extends World
         
         if(myKey != null)
         {
-            if("escape".equals(myKey))
+            if("p".equals(myKey))
             {
                 //System.out.println("PAUSED");
-                if(Map1.pause == false) 
-                {
-                    Map1.pause = true;
-                    return;
-                }
-                else if(Map1.pause == true)
-                {
-                    Map1.pause = false;
-                    return;
-                }
+                if(!pause)  pause = true;
+                else pause = false;
             } else if ("r".equals(myKey))
             {
-                System.out.println("was");
                 reset();
+            } else if("escape".equals(myKey))
+            {
+                Greenfoot.setWorld(new TitleScreen());
             }
         }
+            
+        if(pause) return;
         
         if(EasterEggHandler.counter == 3)
         {
@@ -330,6 +328,10 @@ public class Map2 extends World
         }
     }
     
+    /**
+     * Resets the map to its start state
+     * @return void
+     */
     private void reset()
     {
         Greenfoot.setWorld(new Map2());
