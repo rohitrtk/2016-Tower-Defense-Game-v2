@@ -1,6 +1,7 @@
 # 2016-Tower-Defense-Game
 |2016| Game I had to make for my computer science class using java in the greenfoot environment.
 * **Note: Music and rat sprites do not belong to me, sources will be below!**  
+* **Note: Easter egg stuff is stored in the enemy class!**
 
 **List of things required for 3**
   - [x] Different types of typwers with different abilities
