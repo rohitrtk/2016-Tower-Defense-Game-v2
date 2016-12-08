@@ -3,6 +3,8 @@
 * **Note: Music and rat sprites do not belong to me, sources will be below!**  
 * **Note: Easter egg stuff is stored in the enemy class!**
 
+**Use only as reference please.**
+
 **List of things required for 3**
   - [x] Different types of typwers with different abilities
   - [x] A suite of sounds
